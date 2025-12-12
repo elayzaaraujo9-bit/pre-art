@@ -1,847 +1,738 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta name="google-site-verification" content="woYTCACxxef4NHEwp_aiTvjTs92wxobJupxv3TcTjGA" />
   <meta charset="UTF-8" />
-  <title>Pré Art Gesso – Gesso e Drywall com Simulador de Orçamento</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Pré Art Gesso – Forros, sancas, drywall, nichos, painéis e projetos em gesso com acabamento profissional. Simule seu orçamento em poucos cliques.">
+
+  <!-- Google Search Console -->
+  <meta name="google-site-verification" content="woYTCACxxef4NHEwp_aiTvjTs92wxobJupxv3TcTjGA" />
+
+  <title>Pré Art Drywall &amp; Gesso – Forros, sancas, drywall e detalhes finos</title>
+  <meta name="description" content="Pré Art Drywall & Gesso - forros, sancas, drywall, nichos, painéis e detalhes em gesso com acabamento de catálogo. Atendemos Rio de Janeiro e região metropolitana." />
 
   <style>
+    :root {
+      --bg: #050509;
+      --bg-alt: #111119;
+      --card: #151520;
+      --primary: #e53935;
+      --primary-soft: #ff6f60;
+      --accent: #ffb300;
+      --text: #f5f5f5;
+      --muted: #b0b0b0;
+      --border: #272737;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-    :root {
-      --bg-dark: #0f172a;
-      --bg-darker: #020617;
-      --accent: #fbbf24;
-      --accent-soft: #fef3c7;
-      --text-main: #0f172a;
-      --text-muted: #6b7280;
-      --card-bg: #ffffff;
-      --border-soft: #e5e7eb;
-      --radius-lg: 18px;
-      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.18);
     }
 
     body {
-      background: #f3f4f6;
-      color: var(--text-main);
-      line-height: 1.5;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1a0b0b 0, var(--bg) 38%, #020308 100%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
-    .page-wrapper {
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
-    /* HEADER / HERO */
-
-    header {
-      background: radial-gradient(circle at top left, #1f2937 10%, #020617 60%, #000 100%);
-      color: #fff;
-      padding: 24px 20px 80px;
+    .container {
+      width: min(1120px, 100% - 32px);
+      margin: 0 auto;
     }
 
-    .header-inner {
-      max-width: 1120px;
-      margin: 0 auto;
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(5, 5, 9, 0.96), rgba(5, 5, 9, 0.86));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .nav {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 24px;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 16px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 10px;
     }
 
     .brand-logo {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--accent), #f97316);
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 30% 0, #ffe082, #ff6f60 50%, #b71c1c 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 800;
       font-size: 22px;
-      color: #111827;
-      box-shadow: 0 10px 30px rgba(250, 204, 21, 0.4);
+      color: #1a0606;
+      box-shadow: 0 0 20px rgba(229, 57, 53, 0.8);
     }
 
-    .brand-text h1 {
-      font-size: 22px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .brand-text span {
-      display: block;
-      font-size: 12px;
-      color: #9ca3af;
-      margin-top: 2px;
-    }
-
-    .header-cta {
+    .brand-text {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-title {
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .nav-actions {
+      display: flex;
       align-items: center;
       gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
-    .header-phone {
+    .nav-link {
       font-size: 13px;
-      color: #e5e7eb;
-    }
-
-    .header-phone strong {
-      color: var(--accent);
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #111827;
-      border: none;
+      color: var(--muted);
+      padding: 4px 8px;
       border-radius: 999px;
-      padding: 10px 20px;
-      font-weight: 600;
-      font-size: 14px;
+      transition: 0.18s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .btn {
+      border: none;
       cursor: pointer;
+      border-radius: 999px;
+      font-size: 14px;
+      padding: 9px 18px;
+      font-weight: 600;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      box-shadow: 0 14px 25px rgba(251, 191, 36, 0.35);
-      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s;
-      text-decoration: none;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #ff1744);
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(229, 57, 53, 0.45);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      background: #facc15;
-      box-shadow: 0 18px 35px rgba(250, 204, 21, 0.45);
+      box-shadow: 0 18px 42px rgba(229, 57, 53, 0.6);
     }
 
-    /* HERO SECTION */
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    /* HERO */
 
     .hero {
-      max-width: 1120px;
-      margin: 36px auto 0;
+      padding: 32px 0 40px;
+    }
+
+    .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      grid-template-columns: 1.3fr 1.1fr;
       gap: 32px;
       align-items: center;
     }
 
-    .hero-text h2 {
-      font-size: 32px;
-      line-height: 1.2;
+    .hero-kicker {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--primary-soft);
+      margin-bottom: 12px;
+    }
+
+    .hero-title {
+      font-size: clamp(30px, 4vw, 38px);
+      line-height: 1.15;
       margin-bottom: 14px;
     }
 
-    .hero-text h2 span {
+    .hero-title span {
       color: var(--accent);
     }
 
-    .hero-text p {
-      color: #e5e7eb;
+    .hero-subtitle {
       font-size: 15px;
-      max-width: 480px;
-      margin-bottom: 18px;
-    }
-
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-
-    .badge {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
-      border-radius: 999px;
-      padding: 6px 12px;
-      border: 1px solid rgba(249, 250, 251, 0.18);
-      color: #e5e7eb;
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.2));
-    }
-
-    .badge.gold {
-      background: rgba(251, 191, 36, 0.14);
-      border-color: rgba(251, 191, 36, 0.55);
-      color: #fefce8;
+      color: var(--muted);
+      margin-bottom: 20px;
+      max-width: 520px;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
     }
 
-    .btn-secondary {
-      background: transparent;
-      color: #e5e7eb;
-      border-radius: 999px;
-      padding: 9px 18px;
-      font-size: 14px;
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      cursor: pointer;
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      text-decoration: none;
-      transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
-    }
-
-    .btn-secondary:hover {
-      background: rgba(15, 23, 42, 0.9);
-      border-color: #e5e7eb;
-    }
-
-    .hero-highlight {
+    .hero-note {
       font-size: 12px;
-      color: #9ca3af;
-      margin-top: 8px;
+      color: var(--muted);
     }
 
-    .hero-visual {
-      background: radial-gradient(circle at top right, #fbbf24 0, #111827 40%, #020617 100%);
-      border-radius: 28px;
-      padding: 18px;
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 11px;
+      color: var(--muted);
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #4caf50;
+      box-shadow: 0 0 10px #4caf50;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, rgba(255, 82, 82, 0.32), transparent 60%),
+                  radial-gradient(circle at bottom right, rgba(255, 235, 59, 0.25), transparent 55%),
+                  var(--bg-alt);
+      border-radius: 26px;
+      padding: 20px 20px 18px;
       box-shadow: var(--shadow-soft);
-      position: relative;
-      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
 
-    .hero-room {
-      border-radius: 18px;
-      background: linear-gradient(135deg, #020617, #111827);
-      border: 1px solid rgba(148, 163, 184, 0.3);
-      height: 210px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-ceiling {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top, #fef9c3 0, #eab308 18%, #1f2937 55%);
-      opacity: 0.95;
-      clip-path: polygon(0 0, 100% 0, 88% 40%, 12% 40%);
-    }
-
-    .hero-wall {
-      position: absolute;
-      inset: 35% 0 0;
-      background: linear-gradient(to bottom, #020617, #0f172a 40%, #111827 100%);
-    }
-
-    .hero-sofa {
-      position: absolute;
-      bottom: 12px;
-      left: 16px;
-      width: 52%;
-      height: 70px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, #0ea5e9, #22d3ee);
-      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.9);
-    }
-
-    .hero-sofa::before,
-    .hero-sofa::after {
-      content: "";
-      position: absolute;
-      top: -20px;
-      width: 26px;
-      height: 26px;
-      border-radius: 10px;
-      background: #facc15;
-      box-shadow: 0 6px 12px rgba(251, 191, 36, 0.5);
-    }
-
-    .hero-sofa::before {
-      left: 12px;
-    }
-
-    .hero-sofa::after {
-      left: 44px;
-      background: #e5e7eb;
-      box-shadow: 0 6px 14px rgba(148, 163, 184, 0.6);
-    }
-
-    .hero-panel {
-      position: absolute;
-      bottom: 10px;
-      right: 18px;
-      width: 32%;
-      height: 85px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, #020617, #111827);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.9);
-      overflow: hidden;
-    }
-
-    .hero-panel::before {
-      content: "";
-      position: absolute;
-      inset: 10px;
-      border-radius: 10px;
-      background: radial-gradient(circle at center, #f97316 0, #111827 60%);
-      opacity: 0.8;
-    }
-
-    .hero-stats {
-      margin-top: 12px;
+    .hero-card-header {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       gap: 10px;
-      font-size: 11px;
-      color: #e5e7eb;
     }
 
-    .hero-stat {
-      flex: 1;
-      padding: 10px 10px;
-      border-radius: 12px;
-      background: rgba(15, 23, 42, 0.75);
-      border: 1px solid rgba(148, 163, 184, 0.5);
-    }
-
-    .hero-stat strong {
-      display: block;
+    .hero-card-title {
       font-size: 14px;
-      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(255, 255, 255, 0.78);
     }
 
-    main {
-      flex: 1;
-      max-width: 1120px;
-      margin: -40px auto 32px;
-      padding: 0 20px 40px;
+    .hero-card-tag {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.15);
     }
 
-    /* GENERIC SECTION */
+    .hero-card-body {
+      display: grid;
+      grid-template-columns: 1.3fr 1.1fr;
+      gap: 12px;
+    }
 
-    .section {
-      margin-top: 26px;
+    .hero-card-main {
+      background: rgba(5, 5, 9, 0.75);
+      border-radius: 18px;
+      padding: 14px 14px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .hero-card-main-title {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .hero-card-main-text {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-card-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .badge {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(0, 0, 0, 0.28);
+    }
+
+    .hero-card-mini {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .hero-mini-box {
+      background: rgba(5, 5, 9, 0.78);
+      border-radius: 16px;
+      padding: 9px 11px;
+      font-size: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .hero-mini-label {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .hero-mini-value {
+      font-weight: 600;
+    }
+
+    /* SEÇÕES */
+
+    section {
+      padding: 10px 0 32px;
     }
 
     .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 12px;
-      margin-bottom: 12px;
+      margin-bottom: 18px;
+    }
+
+    .section-kicker {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--primary-soft);
+      margin-bottom: 6px;
     }
 
     .section-title {
       font-size: 20px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      margin-bottom: 6px;
     }
 
-    .section-title span {
-      width: 4px;
-      height: 18px;
-      border-radius: 999px;
-      background: var(--accent);
+    .section-sub {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 620px;
     }
 
-    .section-subtitle {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    /* ABOUT / BENEFITS */
+    /* SOBRE */
 
     .about-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
     }
 
     .card {
-      background: var(--card-bg);
+      background: var(--card);
       border-radius: var(--radius-lg);
-      padding: 18px 18px 16px;
-      border: 1px solid var(--border-soft);
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+      padding: 18px 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
     }
 
-    .card p {
-      font-size: 14px;
-      color: var(--text-muted);
-      margin-top: 6px;
-    }
-
-    .about-list {
-      list-style: none;
-      margin-top: 10px;
-      display: grid;
-      gap: 6px;
-      font-size: 13px;
-      color: var(--text-main);
-    }
-
-    .about-list li::before {
-      content: "• ";
-      color: var(--accent);
-      font-weight: bold;
-    }
-
-    .highlights {
-      display: grid;
-      gap: 8px;
-    }
-
-    .highlight-item {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      font-size: 13px;
-    }
-
-    .highlight-icon {
-      width: 22px;
-      height: 22px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-    }
-
-    .highlight-item strong {
-      display: block;
-      font-size: 13px;
-    }
-
-    /* SERVICES */
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .service-card {
-      background: #f9fafb;
-      border-radius: 16px;
-      padding: 14px 14px 12px;
-      border: 1px solid #e5e7eb;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      font-size: 13px;
-    }
-
-    .service-tag {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: #111827;
-      color: #f9fafb;
-      align-self: flex-start;
-    }
-
-    .service-title {
-      font-weight: 600;
-    }
-
-    .service-desc {
-      color: var(--text-muted);
-      font-size: 12px;
-    }
-
-    .service-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 11px;
-      margin-top: 6px;
-      color: #4b5563;
-    }
-
-    .service-meta span strong {
-      color: #111827;
-    }
-
-    /* GALLERY */
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .gallery-item {
-      border-radius: 16px;
-      background: #e5e7eb;
-      height: 120px;
-      overflow: hidden;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #6b7280;
-      font-size: 12px;
-      text-align: center;
-      padding: 10px;
-    }
-
-    .gallery-item span {
-      background: rgba(15, 23, 42, 0.75);
-      color: #f9fafb;
-      padding: 4px 8px;
-      border-radius: 999px;
-      font-size: 11px;
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    /* SIMULATOR */
-
-    .simulator-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-      gap: 18px;
-    }
-
-    .sim-card {
-      background: var(--card-bg);
-      border-radius: var(--radius-lg);
-      padding: 18px 18px 16px;
-      border: 1px solid var(--border-soft);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .sim-card h3 {
-      margin-bottom: 10px;
-      font-size: 17px;
-    }
-
-    .sim-fields {
-      display: grid;
-      gap: 10px;
-      margin-top: 4px;
-    }
-
-    label {
-      font-size: 13px;
-      font-weight: 500;
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    select,
-    input[type="number"] {
-      width: 100%;
-      border-radius: 10px;
-      border: 1px solid #d1d5db;
-      padding: 8px 10px;
-      font-size: 13px;
-      outline: none;
-      transition: border 0.12s ease, box-shadow 0.12s ease;
-      background: #f9fafb;
-    }
-
-    select:focus,
-    input[type="number"]:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.6);
-      background: #ffffff;
-    }
-
-    .inline-fields {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .sim-small {
-      font-size: 11px;
-      color: var(--text-muted);
-      margin-top: 6px;
-    }
-
-    .sim-result {
-      margin-top: 14px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      background: #fefce8;
-      border: 1px dashed #eab308;
-      font-size: 13px;
-      color: #854d0e;
-    }
-
-    .sim-result strong {
-      font-size: 18px;
-      color: #854d0e;
-    }
-
-    .sim-benefits {
-      font-size: 12px;
-      margin-top: 8px;
-      color: var(--text-muted);
-    }
-
-    .sim-secondary {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
-
-    .contact-card {
-      background: #020617;
-      color: #e5e7eb;
-      border-radius: var(--radius-lg);
-      padding: 18px 18px 16px;
-      border: 1px solid #111827;
-      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.9);
-    }
-
-    .contact-card h3 {
+    .card h3 {
       font-size: 16px;
       margin-bottom: 8px;
     }
 
-    .contact-card p {
+    .card p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .list li {
       font-size: 13px;
-      color: #cbd5f5;
-      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .list li::before {
+      content: "• ";
+      color: var(--primary-soft);
+    }
+
+    /* GALERIA */
+
+    .gallery {
+      padding-top: 6px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .gallery-item {
+      background: var(--card);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .gallery-img-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-img-wrap::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.55), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      transition: transform 0.25s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-item:hover .gallery-img-wrap::after {
+      opacity: 1;
+    }
+
+    .gallery-body {
+      padding: 10px 11px 11px;
+      font-size: 13px;
+    }
+
+    .gallery-title {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .gallery-text {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* FORM / SIMULADOR */
+
+    .simulador-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .form-full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(5, 5, 9, 0.92);
+      padding: 8px 9px;
+      color: var(--text);
+      font-size: 13px;
+      outline: none;
+      transition: border 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--primary-soft);
+      box-shadow: 0 0 0 1px rgba(229, 57, 53, 0.35);
+      background: #050509;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .form-help {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .simulador-aside {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      padding: 14px 14px 12px;
+      border: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .simulador-aside h3 {
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: var(--text);
     }
 
     .contact-list {
       list-style: none;
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
       font-size: 13px;
-      display: grid;
-      gap: 6px;
-      margin-bottom: 12px;
     }
 
     .contact-list strong {
-      color: #f9fafb;
-    }
-
-    .contact-alert {
-      font-size: 11px;
-      color: #9ca3af;
+      color: var(--text);
     }
 
     /* FOOTER */
 
     footer {
-      border-top: 1px solid #e5e7eb;
-      padding: 14px 20px 22px;
-      background: #f9fafb;
-      font-size: 11px;
-      color: #6b7280;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 16px 0 18px;
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--muted);
+      background: #050509;
     }
 
-    .footer-inner {
-      max-width: 1120px;
-      margin: 0 auto;
+    .footer-grid {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
       flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
     }
 
-    .footer-inner span {
-      white-space: nowrap;
-    }
+    /* RESPONSIVO */
 
-    .footer-inner a {
-      color: #4b5563;
-      text-decoration: none;
-    }
-
-    .footer-inner a:hover {
-      text-decoration: underline;
-    }
-
-    /* RESPONSIVE */
-
-    @media (max-width: 960px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
       }
-      .hero-visual {
+
+      .hero-card {
         order: -1;
       }
-      .about-grid,
-      .simulator-layout {
-        grid-template-columns: minmax(0, 1fr);
+
+      .about-grid {
+        grid-template-columns: 1fr;
       }
-      .services-grid {
+
+      .simulador-grid {
+        grid-template-columns: 1fr;
+      }
+
+      form {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
     @media (max-width: 640px) {
-      header {
-        padding: 20px 16px 70px;
-      }
-      .header-inner {
+      .nav {
         flex-direction: column;
         align-items: flex-start;
       }
-      .hero-text h2 {
-        font-size: 24px;
+
+      .nav-actions {
+        width: 100%;
+        justify-content: space-between;
       }
-      main {
-        margin-top: -30px;
-        padding: 0 16px 28px;
+
+      .hero {
+        padding-top: 22px;
       }
-      .services-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
+
       .gallery-grid {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 
 <body>
-<div class="page-wrapper">
+<div class="page">
 
+  <!-- HEADER -->
   <header>
-    <div class="header-inner">
+    <div class="container nav">
       <div class="brand">
         <div class="brand-logo">P</div>
         <div class="brand-text">
-          <h1>PRÉ ART GESSO</h1>
-          <span>Forros • Sancas • Drywall • Detalhes finos</span>
+          <div class="brand-title">Pré Art Drywall &amp; Gesso</div>
+          <div class="brand-sub">Forros • sancas • drywall • detalhes finos</div>
         </div>
       </div>
-      <div class="header-cta">
-        <div class="header-phone">
-          Orçamentos e agendamentos:
-          <strong>WhatsApp</strong>
-        </div>
-        <button class="btn-primary" onclick="scrollToSimulator()">
-          Simular orçamento agora
-          <span>↓</span>
+
+      <div class="nav-actions">
+        <a href="#galeria" class="nav-link">Trabalhos em destaque</a>
+        <a href="https://heyzine.com/flip-book/2cb0230d2e.html" target="_blank" class="nav-link">Ver catálogo completo</a>
+        <button class="btn btn-primary" onclick="scrollToSimulador()">
+          Simular orçamento
         </button>
       </div>
     </div>
-
-    <section class="hero">
-      <div class="hero-text">
-        <div class="hero-badges">
-          <div class="badge gold">Catálogo Pré Art</div>
-          <div class="badge">Ambientes residenciais e comerciais</div>
-        </div>
-        <h2>
-          Ambientes em gesso com
-          <span>acabamento de catálogo</span>.
-        </h2>
-        <p>
-          Forros, sancas, painéis, nichos e drywall executados com precisão,
-          limpeza e compromisso com o cliente. Da ideia ao acabamento final.
-        </p>
-        <div class="hero-actions">
-          <button class="btn-primary" onclick="scrollToSimulator()">Simular meu ambiente</button>
-          <a class="btn-secondary" href="https://heyzine.com/flip-book/2cb0230d2e.html" target="_blank" rel="noopener">
-            Ver catálogo completo
-          </a>
-        </div>
-        <div class="hero-highlight">
-          ➜ Use o simulador para ter uma base de orçamento antes de falar com a equipe da Pré Art.
-        </div>
-      </div>
-
-      <div class="hero-visual">
-        <div class="hero-room">
-          <div class="hero-ceiling"></div>
-          <div class="hero-wall"></div>
-          <div class="hero-sofa"></div>
-          <div class="hero-panel"></div>
-        </div>
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <span>Especialidade</span>
-            <strong>Forros e sancas</strong>
-            <div>Linhas retas, iluminações embutidas e detalhes modernos.</div>
-          </div>
-          <div class="hero-stat">
-            <span>Serviços</span>
-            <strong>Projetos sob medida</strong>
-            <div>Do quarto ao painel de TV, cada ambiente é pensado para você.</div>
-          </div>
-        </div>
-      </div>
-    </section>
   </header>
 
   <main>
 
-    <!-- SOBRE / BENEFÍCIOS -->
-    <section class="section">
-      <div class="section-header">
-        <div class="section-title">
-          <span></span> Sobre a Pré Art
-        </div>
-        <div class="section-subtitle">
-          Qualidade de catálogo aplicada no seu ambiente real.
-        </div>
-      </div>
-
-      <div class="about-grid">
-        <article class="card">
-          <h3>Gesso com acabamento limpo, moderno e organizado</h3>
-          <p>
-            A Pré Art é especializada em serviços de gesso e drywall, cuidando desde o planejamento do ambiente até o acabamento final.
-            Foco em detalhes, limpeza durante a obra e respeito ao cliente.
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-kicker">Rio de Janeiro • Região metropolitana</div>
+          <h1 class="hero-title">
+            Ambientes em gesso e drywall com
+            <span>acabamento de catálogo.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Forros, sancas, painéis, nichos e paredes em drywall executados com precisão,
+            limpeza e compromisso com o cliente. Seu projeto com cara de revista, do teto
+            ao último detalhe em gesso.
           </p>
-          <ul class="about-list">
-            <li>Atendimento personalizado para cada tipo de ambiente.</li>
-            <li>Indicação de soluções em forros, sancas, nichos e painéis.</li>
-            <li>Execução com organização, pontualidade e cuidado com o imóvel.</li>
-          </ul>
-        </article>
 
-        <aside class="card">
-          <h4>Por que escolher a Pré Art?</h4>
-          <div class="highlights">
-            <div class="highlight-item">
-              <div class="highlight-icon">✓</div>
-              <div>
-                <strong>Acabamento de revista</strong>
-                <span>Linhas precisas, quinas bem definidas e superfícies prontas para receber pintura.</span>
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="scrollToSimulador()">
+              Simular orçamento pelo WhatsApp
+            </button>
+            <a href="https://heyzine.com/flip-book/2cb0230d2e.html" target="_blank" class="btn btn-ghost">
+              Ver catálogo completo
+            </a>
+          </div>
+
+          <div class="hero-note">
+            Use o simulador para enviar os detalhes do ambiente direto para o WhatsApp da Pré Art.
+          </div>
+
+          <div class="pill">
+            <span class="pill-dot"></span>
+            <span>Atendimento de segunda a sábado • Orçamentos sem compromisso</span>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="hero-card-header">
+            <div class="hero-card-title">Pré Art Drywall &amp; Gesso</div>
+            <div class="hero-card-tag">Qualidade de catálogo no seu ambiente real</div>
+          </div>
+
+          <div class="hero-card-body">
+            <div class="hero-card-main">
+              <div class="hero-card-main-title">Especialista em ambientes residenciais e comerciais</div>
+              <div class="hero-card-main-text">
+                Forros rebaixados, sancas com LED, painéis de TV, nichos, paredes 3D e projetos sob medida.
+              </div>
+              <div class="hero-card-badges">
+                <div class="badge">Acabamento fino</div>
+                <div class="badge">Planejamento da iluminação</div>
+                <div class="badge">Organização e limpeza</div>
+                <div class="badge">Execução pontual</div>
               </div>
             </div>
-            <div class="highlight-item">
-              <div class="highlight-icon">🧹</div>
-              <div>
-                <strong>Obra limpa e organizada</strong>
-                <span>Proteção dos móveis e organização diária do ambiente de trabalho.</span>
+
+            <div class="hero-card-mini">
+              <div class="hero-mini-box">
+                <div class="hero-mini-label">Região de atendimento</div>
+                <div class="hero-mini-value">Rio de Janeiro e toda região metropolitana</div>
               </div>
-            </div>
-            <div class="highlight-item">
-              <div class="highlight-icon">💡</div>
-              <div>
-                <strong>Planejamento da iluminação</strong>
-                <span>Indicação de sancas, rasgos de luz e pontos estratégicos para deixar o espaço mais aconchegante.</span>
+              <div class="hero-mini-box">
+                <div class="hero-mini-label">Horários</div>
+                <div class="hero-mini-value">
+                  Seg a sex: 10h às 19h<br/>
+                  Sábados: 10h às 14h
+                </div>
               </div>
             </div>
           </div>
@@ -849,285 +740,295 @@
       </div>
     </section>
 
-    <!-- SERVIÇOS -->
-    <section class="section">
-      <div class="section-header">
-        <div class="section-title">
-          <span></span> Catálogo de serviços
+    <!-- SOBRE -->
+    <section id="sobre">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Sobre a Pré Art</div>
+          <h2 class="section-title">Gesso com acabamento limpo, moderno e organizado</h2>
+          <p class="section-sub">
+            A Pré Art Drywall &amp; Gesso cuida do seu ambiente do planejamento ao acabamento final.
+            Foco em detalhes, iluminação e respeito ao imóvel do cliente.
+          </p>
         </div>
-        <div class="section-subtitle">
-          Principais soluções em gesso e drywall oferecidas pela Pré Art.
+
+        <div class="about-grid">
+          <article class="card">
+            <h3>Como trabalhamos</h3>
+            <p>
+              Cada projeto é pensado para o ambiente real do cliente, com soluções de gesso e drywall
+              que valorizam o espaço e deixam tudo pronto para pintura e decoração.
+            </p>
+            <ul class="list">
+              <li>Atendimento personalizado para cada tipo de ambiente.</li>
+              <li>Indicação de forros, sancas, nichos, painéis e paredes 3D.</li>
+              <li>Organização, pontualidade e cuidado com o imóvel.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Por que escolher a Pré Art?</h3>
+            <ul class="list">
+              <li><strong>Acabamento de revista</strong>: linhas precisas, quinas bem definidas e superfícies prontas para receber pintura.</li>
+              <li><strong>Obra limpa e organizada</strong>: proteção dos móveis e organização diária do ambiente.</li>
+              <li><strong>Planejamento da iluminação</strong>: sancas, rasgos de luz e pontos estratégicos para destacar o seu projeto.</li>
+            </ul>
+          </article>
         </div>
-      </div>
-
-      <div class="services-grid">
-        <article class="service-card">
-          <div class="service-tag">Forros</div>
-          <div class="service-title">Forro liso em gesso</div>
-          <div class="service-desc">
-            Ideal para salas, quartos e corredores. Deixa o ambiente moderno e pronto para iluminação embutida.
-          </div>
-          <div class="service-meta">
-            <span>Base: <strong>R$ 80/m²</strong></span>
-          </div>
-        </article>
-
-        <article class="service-card">
-          <div class="service-tag">Drywall</div>
-          <div class="service-title">Paredes e divisórias</div>
-          <div class="service-desc">
-            Criação de divisórias internas, closets e escritórios com estrutura leve, resistente e rápida instalação.
-          </div>
-          <div class="service-meta">
-            <span>Base: <strong>R$ 95/m²</strong></span>
-          </div>
-        </article>
-
-        <article class="service-card">
-          <div class="service-tag">Sancas</div>
-          <div class="service-title">Sancas e molduras</div>
-          <div class="service-desc">
-            Detalhes que valorizam o ambiente, perfeitos para iluminação indireta e destaque em salas e quartos.
-          </div>
-          <div class="service-meta">
-            <span>Base: <strong>R$ 120/m²</strong></span>
-          </div>
-        </article>
-
-        <article class="service-card">
-          <div class="service-tag">Projetos</div>
-          <div class="service-title">Nichos e painéis</div>
-          <div class="service-desc">
-            Nichos e painéis sob medida para sala, quarto ou painel de TV, trazendo organização e estética para o ambiente.
-          </div>
-          <div class="service-meta">
-            <span>Base: <strong>R$ 150/m²</strong></span>
-          </div>
-        </article>
       </div>
     </section>
 
     <!-- GALERIA -->
-    <section class="section">
-      <div class="section-header">
-        <div class="section-title">
-          <span></span> Inspirações do catálogo
+    <section id="galeria" class="gallery">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Trabalhos em destaque</div>
+          <h2 class="section-title">Um pouco do que a Pré Art já entregou</h2>
+          <p class="section-sub">
+            Veja alguns ambientes em gesso e drywall já executados. Todas as fotos são de serviços reais da Pré Art Drywall &amp; Gesso.
+          </p>
         </div>
-        <div class="section-subtitle">
-          Reserve este espaço para fotos reais dos projetos da Pré Art.
-        </div>
-      </div>
 
-      <div class="card">
         <div class="gallery-grid">
-          <div class="gallery-item">
-            Ambiente de sala com forro liso e rasgo de luz.
-            <span>Foto 1 – Forro e iluminação</span>
-          </div>
-          <div class="gallery-item">
-            Painel de TV com nichos e iluminação embutida.
-            <span>Foto 2 – Painel de TV</span>
-          </div>
-          <div class="gallery-item">
-            Quarto com sanca e cortineiro em gesso.
-            <span>Foto 3 – Quarto</span>
-          </div>
+
+          <figure class="gallery-item">
+            <div class="gallery-img-wrap">
+              <img src="trabalho-01-forro-sanca.jpg" alt="Forro em gesso com sanca iluminada" />
+            </div>
+            <figcaption class="gallery-body">
+              <div class="gallery-title">Forro com sanca iluminada</div>
+              <div class="gallery-text">Teto rebaixado com sanca e iluminação embutida para sala de estar aconchegante.</div>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <div class="gallery-img-wrap">
+              <img src="trabalho-02-painel-nichos.jpg" alt="Painel de drywall com nichos iluminados" />
+            </div>
+            <figcaption class="gallery-body">
+              <div class="gallery-title">Painel com nichos em drywall</div>
+              <div class="gallery-text">Estrutura completa para painel de TV, nichos decorativos e iluminação de destaque.</div>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <div class="gallery-img-wrap">
+              <img src="trabalho-03-corredor-sanca.jpg" alt="Sala comprida com forro e sanca" />
+            </div>
+            <figcaption class="gallery-body">
+              <div class="gallery-title">Sala com rasgo de luz</div>
+              <div class="gallery-text">Forro contínuo com rasgo de luz em LED, valorizando o corredor e a parede em destaque.</div>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <div class="gallery-img-wrap">
+              <img src="trabalho-04-parede-3d-dourada.jpg" alt="Parede 3D em gesso dourado" />
+            </div>
+            <figcaption class="gallery-body">
+              <div class="gallery-title">Parede 3D destacada</div>
+              <div class="gallery-text">Revestimento 3D em gesso com iluminação direcionada, ideal para cabeceiras e painéis.</div>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <div class="gallery-img-wrap">
+              <img src="trabalho-05-sala-forro.jpg" alt="Sala ampla com forro em gesso" />
+            </div>
+            <figcaption class="gallery-body">
+              <div class="gallery-title">Sala ampla com forro</div>
+              <div class="gallery-text">Projeto para área social com forro de gesso, iluminação geral e pontos de efeito.</div>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <div class="gallery-img-wrap">
+              <img src="trabalho-06-quarto-parede-3d.jpg" alt="Quarto com parede 3D e iluminação" />
+            </div>
+            <figcaption class="gallery-body">
+              <div class="gallery-title">Quarto com parede 3D</div>
+              <div class="gallery-text">Ambiente limpo, moderno e iluminado, combinando parede 3D e forro em gesso.</div>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <div class="gallery-img-wrap">
+              <img src="trabalho-07-sala-jantar-iluminacao.jpg" alt="Sala de jantar com sancas e iluminação" />
+            </div>
+            <figcaption class="gallery-body">
+              <div class="gallery-title">Sala de jantar decorada</div>
+              <div class="gallery-text">Iluminação cênica com sancas em gesso valorizando o painel de madeira e o décor.</div>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <div class="gallery-img-wrap">
+              <img src="trabalho-08-efeito-lua.jpg" alt="Parede com efeito de lua iluminada" />
+            </div>
+            <figcaption class="gallery-body">
+              <div class="gallery-title">Efeito especial em parede</div>
+              <div class="gallery-text">Detalhe artístico com efeito de lua iluminada para ambiente único e memorável.</div>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <div class="gallery-img-wrap">
+              <img src="trabalho-09-sala-led-verde.jpg" alt="Sala com sanca e iluminação em LED verde" />
+            </div>
+            <figcaption class="gallery-body">
+              <div class="gallery-title">Sala com LED em destaque</div>
+              <div class="gallery-text">Sanca com LED colorido e iluminação pontual, ideal para áreas sociais e recepções.</div>
+            </figcaption>
+          </figure>
+
         </div>
       </div>
     </section>
 
-    <!-- SIMULADOR + CONTATO -->
-    <section class="section" id="simulador">
-      <div class="section-header">
-        <div class="section-title">
-          <span></span> Simule seu orçamento
-        </div>
-        <div class="section-subtitle">
-          Use este simulador para ter uma noção de valor antes de falar com a equipe. Os valores são estimativas base.
-        </div>
-      </div>
-
-      <div class="simulator-layout">
-        <article class="sim-card">
-          <h3>Simulador rápido de ambiente</h3>
-          <p class="sim-secondary">
-            Preencha os campos abaixo para estimar o valor do serviço em gesso.
+    <!-- SIMULADOR / CONTATO -->
+    <section id="simulador">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Orçamentos</div>
+          <h2 class="section-title">Simule seu ambiente e envie para o WhatsApp</h2>
+          <p class="section-sub">
+            Preencha os campos abaixo para facilitar o orçamento. Vamos usar essas informações como base
+            e ajustar tudo pelo WhatsApp, incluindo visita técnica quando necessário.
           </p>
+        </div>
 
-          <div class="sim-fields">
-            <div>
-              <label for="tipoServico">Tipo de serviço</label>
-              <select id="tipoServico">
-                <option value="forro">Forro liso em gesso</option>
-                <option value="parede">Parede / drywall</option>
-                <option value="sanca">Sancas e molduras</option>
-                <option value="nicho">Nichos e painéis</option>
-              </select>
-            </div>
-
-            <div class="inline-fields">
+        <div class="simulador-grid">
+          <div class="card">
+            <form id="simulador-form">
               <div>
-                <label for="comprimento">Comprimento do ambiente (m)</label>
-                <input type="number" id="comprimento" min="1" step="0.1" placeholder="Ex.: 4,5" />
+                <label for="nome">Seu nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Como devemos te chamar?" />
               </div>
-              <div>
-                <label for="largura">Largura do ambiente (m)</label>
-                <input type="number" id="largura" min="1" step="0.1" placeholder="Ex.: 3,2" />
-              </div>
-            </div>
 
-            <div>
-              <label for="acabamento">Nível de detalhamento</label>
-              <select id="acabamento">
-                <option value="padrao">Padrão – projeto simples</option>
-                <option value="intermediario">Intermediário – alguns recortes</option>
-                <option value="detalhado">Detalhado – projeto com mais detalhes</option>
-              </select>
-            </div>
+              <div>
+                <label for="bairro">Bairro / Cidade</label>
+                <input type="text" id="bairro" name="bairro" placeholder="Ex.: Madureira, RJ" />
+              </div>
+
+              <div>
+                <label for="ambiente">Tipo de ambiente</label>
+                <select id="ambiente" name="ambiente">
+                  <option value="">Selecione...</option>
+                  <option>Sala de estar / TV</option>
+                  <option>Quarto</option>
+                  <option>Corredor / Hall</option>
+                  <option>Cozinha</option>
+                  <option>Área comercial</option>
+                  <option>Outro ambiente</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="metragem">Metragem aproximada (m²)</label>
+                <input type="text" id="metragem" name="metragem" placeholder="Ex.: 12 m², 25 m²..." />
+              </div>
+
+              <div>
+                <label for="servico">Tipo de serviço</label>
+                <select id="servico" name="servico">
+                  <option value="">Selecione...</option>
+                  <option>Forro em gesso</option>
+                  <option>Sanca com LED</option>
+                  <option>Drywall / divisória</option>
+                  <option>Parede 3D</option>
+                  <option>Painel de TV / Nichos</option>
+                  <option>Projeto completo</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="prazo">Prazo desejado</label>
+                <input type="text" id="prazo" name="prazo" placeholder="Ex.: ainda este mês, próxima semana..." />
+              </div>
+
+              <div class="form-full">
+                <label for="detalhes">Conte um pouco do que você imagina</label>
+                <textarea id="detalhes" name="detalhes" placeholder="Ex.: quero sanca com LED, rasgo de luz na sala e painel para TV de 55 polegadas."></textarea>
+              </div>
+
+              <div class="form-full">
+                <button class="btn btn-primary" type="submit">
+                  Enviar simulação para o WhatsApp
+                </button>
+                <div class="form-help">
+                  Nenhum dado é salvo no site. As informações vão direto para o WhatsApp oficial da Pré Art Drywall &amp; Gesso.
+                </div>
+              </div>
+            </form>
           </div>
 
-          <p class="sim-small">
-            Os valores são apenas uma referência. O orçamento final é confirmado após visita técnica ou análise do projeto.
-          </p>
-
-          <button class="btn-primary" style="margin-top: 10px;" onclick="calcularOrcamento()">
-            Calcular estimativa
-          </button>
-
-          <div class="sim-result" id="resultado">
-            Informe as medidas e clique em calcular para ver a estimativa.
-          </div>
-
-          <p class="sim-benefits">
-            Gostou do valor? Envie esse cálculo direto para o WhatsApp da Pré Art para agilizar o atendimento.
-          </p>
-        </article>
-
-        <aside class="contact-card">
-          <h3>Fale com a Pré Art pelo WhatsApp</h3>
-          <p>
-            Enviamos o resumo da simulação com suas medidas e tipo de serviço.
-            Assim o atendimento já começa com uma base de orçamento.
-          </p>
-
-          <ul class="contact-list">
-         <li><strong>Região de atendimento:</strong> Rio de Janeiro e toda região metropolitana</li>
-         <li><strong>WhatsApp:</strong> (21) 99233-5110 – número oficial da Pré Art</li>
-            <li><strong>Horário:</strong> combinar horário real de atendimento</li>
-          </ul>
-
-          <button class="btn-primary" onclick="enviarWhats()">
-            Enviar simulação pelo WhatsApp
-          </button>
-
-          <p class="contact-alert">
-            Dica: mantenha a metatag do Google no código para continuar verificada no Search Console.
-          </p>
-        </aside>
+          <aside class="simulador-aside">
+            <h3>Atendimento e contatos</h3>
+            <p>
+              Estamos no Rio de Janeiro e atendemos toda a região metropolitana com horário combinado e
+              foco total na sua obra.
+            </p>
+            <ul class="contact-list">
+              <li><strong>Região de atendimento:</strong> Rio de Janeiro e toda região metropolitana</li>
+              <li><strong>WhatsApp:</strong> (21) 99233-5110 – número oficial da Pré Art</li>
+              <li><strong>Horário:</strong> segunda a sexta, de 10h às 19h</li>
+              <li><strong>Sábado:</strong> de 10h às 14h</li>
+            </ul>
+            <p class="form-help">
+              Após enviar a simulação, vamos responder pelo WhatsApp para alinhar valores, prazos e,
+              se necessário, agendar uma visita técnica.
+            </p>
+          </aside>
+        </div>
       </div>
     </section>
+
   </main>
 
+  <!-- FOOTER -->
   <footer>
-    <div class="footer-inner">
-      <div>
-        © <span id="anoAtual"></span> Pré Art Gesso · Todos os direitos reservados.
-      </div>
-      <div>
-        Site desenvolvido por <span>Elayza Araujo</span> ·
-        <a href="https://github.com/elayzaaraujo9-bit/pre-art" target="_blank" rel="noopener">ver projeto no GitHub</a>
-      </div>
+    <div class="container footer-grid">
+      <div>© Pré Art Drywall &amp; Gesso – Todos os direitos reservados.</div>
+      <div>Site desenvolvido para divulgação dos serviços em gesso e drywall na região metropolitana do Rio de Janeiro.</div>
     </div>
   </footer>
 
 </div>
 
 <script>
-  // Preços base (ajustar com seu pai depois)
-  const PRECO_BASE = {
-    forro: 80,
-    parede: 95,
-    sanca: 120,
-    nicho: 150
-  };
-
-  function scrollToSimulator() {
-    const section = document.getElementById("simulador");
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+  function scrollToSimulador() {
+    const sec = document.getElementById("simulador");
+    if (sec) {
+      sec.scrollIntoView({ behavior: "smooth" });
     }
   }
 
-  function calcularOrcamento() {
-    const tipo = document.getElementById("tipoServico").value;
-    const comprimento = parseFloat(document.getElementById("comprimento").value.replace(",", "."));
-    const largura = parseFloat(document.getElementById("largura").value.replace(",", "."));
-    const acabamento = document.getElementById("acabamento").value;
-    const resultado = document.getElementById("resultado");
+  const numeroWhats = "5521992335110";
 
-    if (isNaN(comprimento) || isNaN(largura) || comprimento <= 0 || largura <= 0) {
-      resultado.innerHTML = "Preencha as medidas de comprimento e largura para calcular a estimativa.";
-      return;
-    }
+  document.getElementById("simulador-form").addEventListener("submit", function (e) {
+    e.preventDefault();
 
-    const area = comprimento * largura;
-    let precoM2 = PRECO_BASE[tipo] || 0;
+    const nome = document.getElementById("nome").value.trim();
+    const bairro = document.getElementById("bairro").value.trim();
+    const ambiente = document.getElementById("ambiente").value;
+    const metragem = document.getElementById("metragem").value.trim();
+    const servico = document.getElementById("servico").value;
+    const prazo = document.getElementById("prazo").value.trim();
+    const detalhes = document.getElementById("detalhes").value.trim();
 
-    if (acabamento === "intermediario") precoM2 *= 1.15;
-    if (acabamento === "detalhado") precoM2 *= 1.3;
+    let mensagem = "Olá, vim do site da Pré Art Drywall & Gesso e quero simular um orçamento.%0A%0A";
 
-    const valorTotal = area * precoM2;
-    const valorFormatado = valorTotal.toLocaleString("pt-BR", {
-      style: "currency",
-      currency: "BRL"
-    });
+    if (nome) mensagem += "Nome: " + nome + "%0A";
+    if (bairro) mensagem += "Bairro / Cidade: " + bairro + "%0A";
+    if (ambiente) mensagem += "Ambiente: " + ambiente + "%0A";
+    if (metragem) mensagem += "Metragem aproximada: " + metragem + "%0A";
+    if (servico) mensagem += "Tipo de serviço: " + servico + "%0A";
+    if (prazo) mensagem += "Prazo desejado: " + prazo + "%0A";
+    if (detalhes) mensagem += "%0ADetalhes do que imagino:%0A" + detalhes;
 
-    resultado.innerHTML = `
-      Estimativa para <strong>${area.toFixed(2)} m²</strong>:
-      <br><strong>${valorFormatado}</strong>
-      <br><span style="font-size: 12px;">Valor aproximado. O orçamento final pode variar conforme detalhes do projeto, pé-direito, recortes e infraestrutura elétrica.</span>
-    `;
-  }
-
-  function enviarWhats() {
-    const tipo = document.getElementById("tipoServico").value;
-    const comprimento = document.getElementById("comprimento").value;
-    const largura = document.getElementById("largura").value;
-    const acabamento = document.getElementById("acabamento").value;
-    const resultado = document.getElementById("resultado").innerText;
-
-    const descricaoTipo = {
-      forro: "Forro liso em gesso",
-      parede: "Parede / drywall",
-      sanca: "Sancas e molduras",
-      nicho: "Nichos e painéis"
-    };
-
-    const descricaoAcabamento = {
-      padrao: "Padrão (projeto simples)",
-      intermediario: "Intermediário (alguns recortes)",
-      detalhado: "Detalhado (mais detalhes)"
-    };
-
-    const mensagem = `
-Pré Art, gostaria de um orçamento detalhado.
-
-Tipo de serviço: ${descricaoTipo[tipo]}
-Acabamento: ${descricaoAcabamento[acabamento]}
-Medidas aproximadas: ${comprimento}m x ${largura}m
-
-Estimativa pelo site:
-${resultado}
-
-Podemos ajustar o orçamento e combinar uma visita técnica?`;
-
-    const numeroWhats = "5521992335110"; // trocar para o número real, ex: 5521999998888
-    const url = "https://wa.me/" + numeroWhats + "?text=" + encodeURIComponent(mensagem);
-
+    const url = "https://wa.me/" + numeroWhats + "?text=" + mensagem;
     window.open(url, "_blank");
-  }
-
-  document.getElementById("anoAtual").textContent = new Date().getFullYear();
+  });
 </script>
 
 </body>
