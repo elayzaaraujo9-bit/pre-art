@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pré Art Gesso – Simulador de Orçamento</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+      color: #222;
+      line-height: 1.5;
+    }
+
+    header {
+      background: linear-gradient(135deg, #111827, #1f2937);
+      color: #fff;
+      padding: 24px 16px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    header p {
+      margin-top: 6px;
+      font-size: 0.9rem;
+      opacity: 0.85;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: none;
+      background: #fbbf24;
+      color: #111827;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 16px auto 32px;
+      padding: 0 16px;
+    }
+
+    section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 18px 16px 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    }
+
+    section h2 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      border-left: 4px solid #fbbf24;
+      padding-left: 8px;
+    }
+
+    section p {
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      color: #444;
+    }
+
+    /* Catálogo */
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .card {
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+      padding: 12px;
+      background: #f9fafb;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      margin-bottom: 4px;
+    }
+
+    .card p {
+      font-size: 0.85rem;
+      color: #4b5563;
+    }
+
+    /* Simulador */
+    .sim-form {
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    input[type="number"],
+    select {
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      font-size: 0.9rem;
+    }
+
+    input[type="number"]:focus,
+    select:focus {
+      outline: none;
+      border-color: #fbbf24;
+      box-shadow: 0 0 0 1px #fbbf24;
+    }
+
+    .result-box {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 10px;
+      background: #fef3c7;
+      border: 1px solid #fbbf24;
+      font-size: 0.95rem;
+      display: none;
+    }
+
+    .result-box strong {
+      font-size: 1.1rem;
+    }
+
+    .whatsapp-btn {
+      display: none;
+      margin-top: 10px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: none;
+      background: #22c55e;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .whatsapp-btn:hover {
+      filter: brightness(1.05);
+    }
+
+    /* Contato */
+    .contact-list {
+      list-style: none;
+      margin-top: 6px;
+      font-size: 0.9rem;
+    }
+
+    .contact-list li + li {
+      margin-top: 4px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #6b7280;
+      padding: 10px 0 20px;
+    }
+
+    @media (min-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      section {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Pré Art Gesso</h1>
+    <p>Acabamento em gesso com qualidade profissional – forros, sancas, drywall e detalhes finos.</p>
+    <a href="#simulador" class="btn-primary">Simular orçamento agora</a>
+  </header>
+
+  <main>
+    <!-- Sobre -->
+    <section>
+      <h2>Sobre a Pré Art</h2>
+      <p>
+        A Pré Art é especializada em serviços de gesso e drywall, trazendo acabamento limpo,
+        moderno e com foco em detalhes. Ideal para quem quer valorizar ambientes residenciais e comerciais.
+      </p>
+      <p>
+        Seu <strong>gesseiro</strong> conta com anos de experiência, entregando obras com
+        pontualidade, organização e respeito ao cliente.
+      </p>
+    </section>
+
+    <!-- Catálogo -->
+    <section>
+      <h2>Catálogo de Serviços</h2>
+      <p>Veja alguns dos serviços que a Pré Art oferece:</p>
+      <div class="catalog-grid">
+        <div class="card">
+          <span class="badge">Forro de gesso</span>
+          <h3>Forro liso em gesso</h3>
+          <p>Ideal para salas, quartos e corredores. Deixa o ambiente mais moderno e pronto para iluminação embutida.</p>
+        </div>
+        <div class="card">
+          <span class="badge">Drywall</span>
+          <h3>Parede em drywall</h3>
+          <p>Criação de divisórias internas, ambientes novos, escritórios ou closets com estrutura leve e resistente.</p>
+        </div>
+        <div class="card">
+          <span class="badge">Detalhes</span>
+          <h3>Sancas e molduras</h3>
+          <p>Detalhes que valorizam o ambiente, perfeitos para iluminação indireta e destaque em salas e quartos.</p>
+        </div>
+        <div class="card">
+          <span class="badge">Projetos especiais</span>
+          <h3>Nichos e painéis</h3>
+          <p>Nichos sob medida para sala, quarto ou painel de TV, trazendo organização e estética para o ambiente.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Simulador -->
+    <section id="simulador">
+      <h2>Simulador de Orçamento</h2>
+      <p>
+        Faça uma simulação rápida para ter uma ideia do valor. O preço final pode ser ajustado após visita técnica.
+      </p>
+
+      <form class="sim-form" onsubmit="event.preventDefault(); calcularOrcamento();">
+        <div class="form-group">
+          <label for="tipoServico">Tipo de serviço</label>
+          <select id="tipoServico" required>
+            <option value="">Selecione</option>
+            <option value="forro">Forro de gesso (m²)</option>
+            <option value="parede">Parede em drywall (m²)</option>
+            <option value="sanca">Sancas e detalhes (m²)</option>
+            <option value="nicho">Nichos/painéis (m²)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="area">Área aproximada (em m²)</label>
+          <input type="number" id="area" min="1" step="0.1" placeholder="Ex: 12" required />
+        </div>
+
+        <div class="form-group">
+          <label for="complexidade">Nível de detalhe</label>
+          <select id="complexidade" required>
+            <option value="simples">Simples</option>
+            <option value="medio">Médio</option>
+            <option value="alto">Mais detalhado</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="bairro">Bairro / Cidade (para cálculo aproximado)</label>
+          <input type="text" id="bairro" placeholder="Ex: Centro – RJ" />
+        </div>
+
+        <button type="submit" class="btn-primary">Calcular orçamento</button>
+      </form>
+
+      <div id="resultado" class="result-box"></div>
+      <a id="btnWhatsapp" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+        Enviar simulação pelo WhatsApp
+      </a>
+    </section>
+
+    <!-- Contato -->
+    <section>
+      <h2>Contato</h2>
+      <p>Entre em contato para agendar uma visita, tirar dúvidas ou fechar o serviço.</p>
+      <ul class="contact-list">
+        <li><strong>WhatsApp:</strong> (XX) XXXXX-XXXX</li>
+        <li><strong>Região de atendimento:</strong> ajustar aqui (ex: Rio de Janeiro e região metropolitana)</li>
+        <li><strong>Horário:</strong> combinar horários de atendimento</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    Pré Art Gesso – Site demonstrativo desenvolvido com carinho. Ajustar dados reais com o gesseiro. 
+  </footer>
+
+  <script>
+    // Valores fictícios por m² – combine com seu pai e ajuste:
+    const PRECO_BASE = {
+      forro: 80,   // R$/m²
+      parede: 95,  // R$/m²
+      sanca: 120,  // R$/m²
+      nicho: 150   // R$/m²
+    };
+
+    const FATOR_COMPLEXIDADE = {
+      simples: 1.0,
+      medio: 1.2,
+      alto: 1.4
+    };
+
+    function formatarMoeda(valor) {
+      return valor.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+      });
+    }
+
+    function calcularOrcamento() {
+      const tipo = document.getElementById("tipoServico").value;
+      const area = parseFloat(document.getElementById("area").value);
+      const complexidade = document.getElementById("complexidade").value;
+      const bairro = document.getElementById("bairro").value.trim();
+
+      const resultadoEl = document.getElementById("resultado");
+      const btnWhatsapp = document.getElementById("btnWhatsapp");
+
+      if (!tipo || isNaN(area) || area <= 0) {
+        resultadoEl.style.display = "block";
+        resultadoEl.innerHTML = "Preencha os campos de tipo de serviço e área corretamente.";
+        btnWhatsapp.style.display = "none";
+        return;
+      }
+
+      const precoBase = PRECO_BASE[tipo];
+      const fator = FATOR_COMPLEXIDADE[complexidade];
+
+      const valorEstimado = precoBase * area * fator;
+
+      let descricaoServico = "";
+      switch (tipo) {
+        case "forro":
+          descricaoServico = "Forro de gesso";
+          break;
+        case "parede":
+          descricaoServico = "Parede em drywall";
+          break;
+        case "sanca":
+          descricaoServico = "Sancas e detalhes em gesso";
+          break;
+        case "nicho":
+          descricaoServico = "Nichos/painéis em gesso";
+          break;
+      }
+
+      const textoLocal = bairro ? `Local: ${bairro}.` : "";
+      const textoResultado = `
+        <div>
+          <p>Simulação de orçamento para:</p>
+          <p><strong>${descricaoServico}</strong></p>
+          <p>Área aproximada: <strong>${area} m²</strong></p>
+          <p>Detalhamento: <strong>${complexidade}</strong></p>
+          <p style="margin-top:8px;">Valor estimado a partir de:</p>
+          <p><strong>${formatarMoeda(valorEstimado)}</strong></p>
+          <p style="margin-top:6px; font-size:0.85rem; color:#6b7280;">
+            O valor é uma estimativa. O orçamento final pode variar após visita técnica, medidas exatas e definição dos detalhes do projeto. ${textoLocal}
+          </p>
+        </div>
+      `;
+
+      resultadoEl.style.display = "block";
+      resultadoEl.innerHTML = textoResultado;
+
+      // Link de WhatsApp – coloque o número REAL do seu pai no lugar de 55XXXXXXXXXXX
+      const numeroWhats = "55XXXXXXXXXXX"; // ex: 55DDDNUMERO
+      const mensagem = encodeURIComponent(
+        `Olá, tenho interesse em um serviço da Pré Art.\n\n` +
+        `Simulação realizada pelo site:\n` +
+        `- Serviço: ${descricaoServico}\n` +
+        `- Área: ${area} m²\n` +
+        `- Detalhamento: ${complexidade}\n` +
+        (bairro ? `- Local: ${bairro}\n` : "") +
+        `- Valor estimado: ${formatarMoeda(valorEstimado)}\n\n` +
+        `Gostaria de mais informações e, se possível, uma avaliação final do orçamento.`
+      );
+
+      const urlWhats = `https://wa.me/${numeroWhats}?text=${mensagem}`;
+      btnWhatsapp.href = urlWhats;
+      btnWhatsapp.style.display = "inline-block";
+    }
+  </script>
+</body>
+</html>
