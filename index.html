@@ -3,41 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pré Art Drywall | Forros, Sancas, Nichos e Drywall no Rio de Janeiro</title>
-  <meta name="description" content="Pré Art Drywall - Forros, sancas, nichos, drywall e detalhes em gesso com acabamento de catálogo. Atendimento no Rio de Janeiro e região metropolitana.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Pré Art Drywall | Forros, sancas, nichos e painéis</title>
+  <meta name="description" content="Pré Art Drywall - Forros, sancas, nichos, painéis e detalhes em gesso e drywall com acabamento fino na região metropolitana do Rio de Janeiro." />
+
   <style>
     :root {
-      --bg-main: #050509;
-      --bg-card: #101018;
-      --bg-soft: #151521;
-      --accent: #e53935;
-      --accent-soft: #ff7961;
-      --text-main: #f5f5f7;
-      --text-muted: #b0b3c0;
-      --border-soft: rgba(255,255,255,0.06);
-      --shadow-soft: 0 18px 40px rgba(0,0,0,0.55);
+      --bg: #050509;
+      --bg-alt: #111119;
+      --card: #151520;
+      --primary: #ff4b6e;
+      --primary-soft: rgba(255, 75, 110, 0.12);
+      --text: #f5f5f7;
+      --muted: #a0a0b8;
+      --border: #272734;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
       --radius-lg: 22px;
+      --radius-xl: 28px;
+      --transition-fast: 0.2s ease-out;
+      --transition-med: 0.28s ease-out;
+      --accent: #42e8c4;
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: radial-gradient(circle at top, #201020 0, #050509 45%, #000 100%);
-      color: var(--text-main);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1b1b28 0, #050509 55%);
+      color: var(--text);
       line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
+      -webkit-font-smoothing: antialiased;
     }
 
     img {
@@ -45,415 +43,428 @@
       display: block;
     }
 
-    .page {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 20px 16px 56px;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    /* HEADER */
+    /* HEADER / NAV */
 
     header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom,
+      rgba(5, 5, 9, 0.94),
+      rgba(5, 5, 9, 0.86),
+      transparent);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .nav {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 14px 20px 10px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      padding: 12px 18px;
-      border-radius: 999px;
-      background: rgba(0,0,0,0.4);
-      border: 1px solid var(--border-soft);
-      backdrop-filter: blur(18px);
-      position: sticky;
-      top: 10px;
-      z-index: 20;
+      gap: 14px;
     }
 
-    .brand {
+    .nav-left {
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    .brand-logo {
+    .avatar {
       width: 36px;
       height: 36px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 0%, #ffb199, #ff0844);
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 20%, #ffffff, #ff4b6e);
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 800;
-      font-size: 20px;
-      color: #fff;
-      box-shadow: 0 8px 20px rgba(229,57,53,0.5);
-    }
-
-    .brand-text-title {
-      font-size: 18px;
       font-weight: 700;
-      letter-spacing: 0.03em;
+      color: #050509;
     }
 
-    .brand-text-sub {
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
-    .header-actions {
+    .brand-text {
       display: flex;
-      gap: 10px;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-text strong {
+      font-size: 15px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-text span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .nav-right {
+      display: flex;
       align-items: center;
+      gap: 10px;
+      font-size: 13px;
     }
 
-    .chip {
-      font-size: 11px;
-      padding: 6px 12px;
+    .tag {
+      padding: 4px 10px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      color: var(--text-muted);
-      white-space: nowrap;
+      background: rgba(66, 232, 196, 0.06);
+      color: var(--accent);
+      border: 1px solid rgba(66, 232, 196, 0.25);
     }
 
-    .btn-sm {
-      font-size: 11px;
-      padding: 7px 14px;
+    .cta-btn {
       border-radius: 999px;
       border: none;
-      cursor: pointer;
+      padding: 6px 18px;
+      font-size: 13px;
       font-weight: 600;
-      background: linear-gradient(90deg, #ff0844, #ff512f);
+      cursor: pointer;
       color: #fff;
-      box-shadow: 0 8px 18px rgba(255,64,129,0.5);
-      transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
-      white-space: nowrap;
+      background: radial-gradient(circle at 0 0, #ffd2dd, #ff4b6e);
+      box-shadow: 0 14px 35px rgba(255, 75, 110, 0.45);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+      filter var(--transition-fast);
     }
 
-    .btn-sm:hover {
+    .cta-btn:hover {
       transform: translateY(-1px);
-      box-shadow: 0 12px 22px rgba(255,64,129,0.65);
-      opacity: 0.95;
+      filter: brightness(1.04);
+      box-shadow: 0 18px 45px rgba(255, 75, 110, 0.65);
+    }
+
+    .cta-btn span.dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #fff;
+    }
+
+    /* MAIN LAYOUT */
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px 20px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
     }
 
     /* HERO */
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-      gap: 32px;
-      margin-top: 32px;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 30px;
       align-items: center;
     }
 
-    .hero-left {
-      padding: 26px 24px 24px;
-      background: linear-gradient(145deg, rgba(255,255,255,0.02), rgba(255,64,129,0.05));
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-soft);
-      box-shadow: var(--shadow-soft);
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
 
-    .hero-kicker {
-      font-size: 12px;
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      color: var(--muted);
+      background: rgba(15, 15, 28, 0.98);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .hero-pill span.badge {
+      padding: 3px 7px;
+      border-radius: 999px;
+      font-size: 10px;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--accent-soft);
-      margin-bottom: 8px;
-      font-weight: 600;
+      letter-spacing: 0.14em;
+      background: radial-gradient(circle at 0 0, #ffd2dd, #ff4b6e);
+      color: #050509;
+      font-weight: 700;
     }
 
     .hero-title {
-      font-size: clamp(26px, 4vw, 32px);
-      font-weight: 700;
-      margin-bottom: 6px;
+      font-size: 32px;
+      line-height: 1.15;
     }
 
-    .hero-highlight {
-      color: var(--accent);
+    .hero-title span.highlight {
+      background: linear-gradient(120deg, #ff4b6e, #ffa94b, #42e8c4);
+      -webkit-background-clip: text;
+      color: transparent;
     }
 
     .hero-subtitle {
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 420px;
+    }
+
+    .hero-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 4px;
       font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 16px;
+      color: var(--muted);
     }
 
-    .hero-badges {
+    .hero-list li {
+      list-style: none;
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 18px;
-      font-size: 11px;
-    }
-
-    .badge {
-      padding: 5px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.06);
-      background: rgba(0,0,0,0.45);
-      color: var(--text-muted);
-      display: inline-flex;
       align-items: center;
       gap: 6px;
     }
 
-    .badge-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--accent);
+    .hero-list li::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 2px;
+      background: radial-gradient(circle at 0 0, #ffd2dd, #ff4b6e);
+      box-shadow: 0 0 0 1px rgba(255, 75, 110, 0.4);
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 14px;
+      gap: 12px;
+      margin-top: 8px;
+      align-items: center;
     }
 
-    .btn-main, .btn-ghost {
-      font-size: 13px;
-      padding: 10px 18px;
+    .ghost-btn {
       border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(10, 10, 18, 0.8);
+      color: var(--muted);
+      padding: 7px 16px;
+      font-size: 13px;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, color 0.12s ease;
-      text-align: center;
-      text-decoration: none;
+      cursor: pointer;
+      transition: background var(--transition-fast), border-color var(--transition-fast),
+      color var(--transition-fast);
     }
 
-    .btn-main {
-      background: linear-gradient(90deg, #ff0844, #ff512f);
-      color: #fff;
-      box-shadow: 0 14px 30px rgba(229,57,53,0.7);
+    .ghost-btn:hover {
+      background: rgba(25, 25, 38, 0.95);
+      border-color: rgba(255, 255, 255, 0.3);
+      color: var(--text);
     }
 
-    .btn-main:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 38px rgba(229,57,53,0.9);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      color: var(--accent-soft);
-      border: 1px solid rgba(255,82,82,0.5);
-      backdrop-filter: blur(10px);
-    }
-
-    .btn-ghost:hover {
-      background: rgba(229,57,53,0.05);
-      color: #fff;
-    }
-
-    .hero-note {
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
-    .hero-note strong {
-      color: #fff;
-    }
-
-    .hero-right {
-      background: radial-gradient(circle at top left, rgba(255,82,82,0.4), transparent 55%),
-                  radial-gradient(circle at bottom right, rgba(255,255,255,0.02), transparent 60%);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-soft);
-      padding: 18px 18px 16px;
-      box-shadow: var(--shadow-soft);
+    .hero-metrics {
       display: flex;
-      flex-direction: column;
-      gap: 14px;
+      gap: 18px;
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--muted);
     }
+
+    .hero-metrics strong {
+      display: block;
+      font-size: 18px;
+      color: #fff;
+    }
+
+    /* HERO VISUAL */
 
     .hero-visual {
+      background: radial-gradient(circle at 10% 0, rgba(255, 75, 110, 0.35), transparent 55%),
+      radial-gradient(circle at 100% 0, rgba(66, 232, 196, 0.3), transparent 60%),
+      #050509;
+      border-radius: var(--radius-xl);
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: var(--shadow-soft);
       position: relative;
-      border-radius: 18px;
       overflow: hidden;
+    }
+
+    .hero-visual-inner {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.06);
       background: #000;
-      border: 1px solid rgba(255,255,255,0.08);
-      min-height: 160px;
-    }
-
-    .hero-visual-main {
       position: relative;
-      height: 100%;
-    }
-
-    .hero-visual-main::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 30% 0%, rgba(255,255,255,0.15), transparent 55%);
-      mix-blend-mode: screen;
-      pointer-events: none;
     }
 
     .hero-visual-img {
       width: 100%;
-      height: 100%;
+      height: 260px;
       object-fit: cover;
-      filter: saturate(1.1);
+      transform: scale(1.02);
     }
 
-    .hero-visual-label {
+    .hero-badge-card {
       position: absolute;
-      bottom: 10px;
-      left: 10px;
-      background: rgba(0,0,0,0.7);
-      padding: 6px 10px;
-      border-radius: 999px;
+      bottom: 16px;
+      left: 16px;
+      padding: 10px 13px;
+      border-radius: 16px;
+      background: rgba(5, 5, 12, 0.9);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       font-size: 11px;
-      color: var(--text-muted);
+      color: var(--muted);
+      max-width: 220px;
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.7);
+    }
+
+    .hero-badge-card strong {
+      display: block;
+      color: #fff;
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+
+    .hero-badge-card span.pill {
       display: inline-flex;
-      gap: 6px;
       align-items: center;
-    }
-
-    .hero-visual-label span {
-      color: #fff;
-      font-weight: 500;
-    }
-
-    .hero-visual-label-dot {
-      width: 7px;
-      height: 7px;
+      gap: 6px;
+      margin-top: 6px;
+      padding: 3px 8px;
       border-radius: 999px;
-      background: #4caf50;
+      background: rgba(66, 232, 196, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(66, 232, 196, 0.4);
     }
 
-    .hero-stats {
-      display: flex;
-      gap: 8px;
-      justify-content: space-between;
-      font-size: 11px;
-      color: var(--text-muted);
-      flex-wrap: wrap;
+    .hero-badge-card span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
     }
 
-    .hero-stat {
-      flex: 1 1 80px;
-      background: rgba(0,0,0,0.4);
-      border-radius: 999px;
-      padding: 6px 10px;
-      border: 1px solid var(--border-soft);
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .hero-stat strong {
-      font-size: 13px;
-      color: #fff;
-    }
-
-    /* SECTIONS BASE */
+    /* SECTION WRAPPER */
 
     section {
-      margin-top: 32px;
-    }
-
-    .section-card {
-      background: rgba(0,0,0,0.6);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-soft);
-      padding: 22px 20px 20px;
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top left, rgba(255, 75, 110, 0.08), transparent 55%),
+      radial-gradient(circle at bottom right, rgba(66, 232, 196, 0.06), transparent 55%),
+      rgba(10, 10, 20, 0.98);
+      border: 1px solid rgba(255, 255, 255, 0.04);
       box-shadow: var(--shadow-soft);
+      padding: 20px 20px 18px;
     }
 
-    .section-title {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-
-    .section-sub {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-    }
-
-    /* SOBRE / POR QUE ESCOLHER */
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 18px;
-    }
-
-    .about-box {
-      background: var(--bg-soft);
-      border-radius: 18px;
-      padding: 16px 16px 14px;
-      border: 1px solid var(--border-soft);
-    }
-
-    .about-box h3 {
-      font-size: 14px;
-      margin-bottom: 8px;
-    }
-
-    .about-box ul {
-      list-style: none;
-      font-size: 12px;
-      color: var(--text-muted);
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .about-box li::before {
-      content: "•";
-      color: var(--accent-soft);
-      margin-right: 6px;
-    }
-
-    /* CARROSSEL */
-
-    .gallery-card {
-      background: rgba(0,0,0,0.7);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-soft);
-      padding: 18px 16px 18px;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .gallery-header {
+    .section-header {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: baseline;
       gap: 10px;
       margin-bottom: 12px;
     }
 
-    .gallery-header h2 {
-      font-size: 17px;
+    .section-header h2 {
+      font-size: 18px;
     }
 
-    .gallery-header p {
-      font-size: 11px;
-      color: var(--text-muted);
+    .section-header p {
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 400px;
+    }
+
+    /* SERVIÇOS */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    .service-card {
+      background: rgba(12, 12, 22, 0.98);
+      border-radius: 16px;
+      padding: 12px 11px 11px;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .service-card strong {
+      font-size: 13px;
+      color: #fff;
+    }
+
+    .service-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 3px;
+    }
+
+    .chip {
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    /* GALERIA / CARROSSEL */
+
+    .gallery {
+      margin-top: -4px;
     }
 
     .carousel {
-      position: relative;
+      margin-top: 10px;
       border-radius: 18px;
+      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.02), transparent 60%),
+      #050509;
+      padding: 12px 12px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      position: relative;
       overflow: hidden;
-      background: #000;
-      border: 1px solid rgba(255,255,255,0.08);
     }
 
     .carousel-track {
-      display: flex;
-      transition: transform 0.6s ease;
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      height: 320px;
+      background: #000;
     }
 
     .carousel-slide {
-      min-width: 100%;
-      max-height: 380px;
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: scale(1.03);
+      transition: opacity var(--transition-med), transform var(--transition-med);
+    }
+
+    .carousel-slide.active {
+      opacity: 1;
+      transform: scale(1);
+      z-index: 1;
     }
 
     .carousel-slide img {
@@ -466,25 +477,27 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(0,0,0,0.45);
-      border: 1px solid rgba(255,255,255,0.3);
-      color: #fff;
-      border-radius: 999px;
       width: 32px;
       height: 32px;
-      display: flex;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.15), rgba(5, 5, 9, 0.96));
+      color: #fff;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 20px;
-      z-index: 5;
-      backdrop-filter: blur(6px);
-      transition: background 0.12s ease, transform 0.12s ease;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+      transition: background var(--transition-fast), transform var(--transition-fast),
+      border-color var(--transition-fast), box-shadow var(--transition-fast);
+      z-index: 2;
     }
 
     .carousel-btn:hover {
-      background: rgba(0,0,0,0.7);
-      transform: translateY(-50%) scale(1.03);
+      background: radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.22), rgba(5, 5, 9, 1));
+      transform: translateY(-50%) translateY(-1px);
+      border-color: rgba(255, 255, 255, 0.4);
+      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.8);
     }
 
     .carousel-btn.prev {
@@ -496,633 +509,457 @@
     }
 
     .carousel-dots {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
       display: flex;
-      gap: 6px;
-      z-index: 6;
+      justify-content: center;
+      gap: 7px;
+      margin-top: 10px;
     }
 
     .carousel-dot {
       width: 7px;
       height: 7px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.35);
       border: none;
-      padding: 0;
+      background: rgba(255, 255, 255, 0.18);
       cursor: pointer;
-      transition: transform 0.12s ease, background 0.12s ease;
+      padding: 0;
+      transition: width var(--transition-fast), background var(--transition-fast),
+      transform var(--transition-fast);
     }
 
     .carousel-dot.active {
-      background: var(--accent-soft);
-      transform: scale(1.5);
+      width: 18px;
+      background: var(--primary);
+      transform: translateY(-1px);
     }
 
-    /* CONTATO + FORM */
+    /* CONTATO / RODAPÉ */
 
     .contact-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 18px;
+      grid-template-columns: 2.1fr 1.3fr;
+      gap: 16px;
+      margin-top: 8px;
+      font-size: 13px;
     }
 
-    .contact-info {
-      background: var(--bg-soft);
-      border-radius: 18px;
-      padding: 16px 16px 14px;
-      border: 1px solid var(--border-soft);
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    .contact-info h3 {
-      font-size: 14px;
-      margin-bottom: 8px;
-      color: #fff;
-    }
-
-    .contact-list {
-      list-style: none;
+    .contact-box {
+      background: rgba(10, 10, 20, 0.95);
+      border-radius: 16px;
+      padding: 12px 12px 11px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
       display: flex;
       flex-direction: column;
       gap: 6px;
+      color: var(--muted);
     }
 
-    .contact-list strong {
+    .contact-box strong {
       color: #fff;
-      font-weight: 500;
     }
 
-    .contact-actions {
-      margin-top: 12px;
+    .contact-row {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
+      margin-top: 4px;
     }
 
-    .form-card {
-      background: var(--bg-soft);
-      border-radius: 18px;
-      padding: 16px 16px 14px;
-      border: 1px solid var(--border-soft);
-    }
-
-    .form-card h3 {
-      font-size: 14px;
-      margin-bottom: 6px;
-    }
-
-    .form-card p {
-      font-size: 11px;
-      color: var(--text-muted);
-      margin-bottom: 12px;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      font-size: 11px;
-    }
-
-    .form-group label {
-      color: var(--text-muted);
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      background: rgba(0,0,0,0.6);
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.12);
-      padding: 8px 9px;
-      color: #fff;
-      font-family: inherit;
-      font-size: 12px;
-      outline: none;
-      transition: border 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
-    }
-
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: var(--accent-soft);
-      box-shadow: 0 0 0 1px rgba(255,82,82,0.4);
-      background: rgba(0,0,0,0.8);
-    }
-
-    .form-group textarea {
-      min-height: 72px;
-      resize: vertical;
-      grid-column: 1 / -1;
-    }
-
-    .form-footer {
-      margin-top: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .form-hint {
-      font-size: 10px;
-      color: var(--text-muted);
-      max-width: 260px;
-    }
-
-    .btn-whats {
-      border: none;
-      cursor: pointer;
-      background: linear-gradient(90deg, #00c853, #b2ff59);
-      color: #001b06;
-      font-size: 13px;
-      padding: 9px 16px;
-      border-radius: 999px;
-      font-weight: 600;
+    .whats-link {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      box-shadow: 0 12px 26px rgba(0,200,83,0.55);
-      transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
-      text-decoration: none;
+      gap: 6px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: #25d366;
+      color: #050509;
+      font-weight: 600;
+      font-size: 13px;
+      box-shadow: 0 14px 30px rgba(37, 211, 102, 0.4);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+      filter var(--transition-fast);
     }
 
-    .btn-whats:hover {
+    .whats-link:hover {
       transform: translateY(-1px);
-      box-shadow: 0 16px 32px rgba(0,200,83,0.75);
-      opacity: 0.97;
+      filter: brightness(1.05);
+      box-shadow: 0 18px 38px rgba(37, 211, 102, 0.6);
     }
-
-    /* FOOTER */
 
     footer {
-      margin-top: 32px;
+      margin-top: -36px;
+      padding-bottom: 10px;
       font-size: 11px;
-      color: var(--text-muted);
       text-align: center;
-    }
-
-    footer strong {
-      color: #fff;
+      color: var(--muted);
     }
 
     /* RESPONSIVO */
 
-    @media (max-width: 840px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .header-actions {
-        width: 100%;
-        justify-content: space-between;
-      }
+    @media (max-width: 880px) {
       .hero {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
       }
-      .hero-right {
+
+      .hero-visual {
         order: -1;
       }
-      .about-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
+
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
-      .form-grid {
-        grid-template-columns: 1fr;
+
+      .carousel-track {
+        height: 260px;
+      }
+
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      main {
+        padding-inline: 14px;
+      }
+
+      .nav {
+        padding-inline: 14px;
       }
     }
 
-    @media (max-width: 520px) {
-      .page {
-        padding-inline: 12px;
+    @media (max-width: 540px) {
+      .hero-title {
+        font-size: 26px;
       }
-      header {
-        border-radius: 18px;
-      }
-      .hero-left,
-      .hero-right,
-      .section-card,
-      .gallery-card {
-        padding-inline: 14px;
-      }
-      .hero-actions {
+
+      .hero-metrics {
         flex-direction: column;
-        align-items: stretch;
       }
-      .btn-main,
-      .btn-ghost,
-      .btn-whats {
-        justify-content: center;
-        width: 100%;
+
+      .services-grid {
+        grid-template-columns: minmax(0, 1fr);
       }
-      .carousel-slide {
-        max-height: 260px;
+
+      .carousel-track {
+        height: 230px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <header>
-      <div class="brand">
-        <div class="brand-logo">P</div>
-        <div>
-          <div class="brand-text-title">Pré Art Drywall</div>
-          <div class="brand-text-sub">Forros • Sancas • Nichos • Drywall</div>
-        </div>
+
+<header>
+  <nav class="nav">
+    <div class="nav-left">
+      <div class="avatar">P</div>
+      <div class="brand-text">
+        <strong>Pré Art Drywall</strong>
+        <span>Forros • Sancas • Nichos • Detalhes finos</span>
       </div>
-      <div class="header-actions">
-        <div class="chip">Rio de Janeiro • Região Metropolitana</div>
-        <button class="btn-sm" onclick="document.getElementById('orcamento').scrollIntoView({behavior:'smooth'})">
-          Simular orçamento
+    </div>
+    <div class="nav-right">
+      <span class="tag">Rio de Janeiro • Região Metropolitana</span>
+      <button class="cta-btn" onclick="window.location.href='#contato'">
+        <span class="dot"></span>
+        Simular orçamento
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="hero-pill">
+        <span class="badge">Drywall & gesso</span>
+        Projetos sob medida para valorizar seus ambientes
+      </div>
+
+      <h1 class="hero-title">
+        Detalhes em <span class="highlight">drywall e gesso</span> que mudam
+        o clima da sua casa ou negócio.
+      </h1>
+
+      <p class="hero-subtitle">
+        Forros, sancas, nichos, painéis e iluminação embutida com acabamento
+        limpo, moderno e pensado para o seu espaço.
+      </p>
+
+      <ul class="hero-list">
+        <li>Projetos residenciais e comerciais</li>
+        <li>Execução limpa e organizada</li>
+        <li>Acabamento de alto padrão</li>
+        <li>Atendimento em toda região metropolitana do RJ</li>
+      </ul>
+
+      <div class="hero-actions">
+        <button class="cta-btn" onclick="window.location.href='#contato'">
+          <span class="dot"></span>
+          Pedir orçamento rápido
+        </button>
+
+        <button class="ghost-btn" onclick="window.location.href='#trabalhos'">
+          Ver trabalhos em destaque →
         </button>
       </div>
-    </header>
 
-    <main>
-      <!-- HERO -->
-      <section class="hero">
-        <div class="hero-left">
-          <div class="hero-kicker">Ambientes em gesso com acabamento de catálogo</div>
-          <h1 class="hero-title">
-            Seu ambiente em drywall com
-            <span class="hero-highlight">acabamento profissional</span>.
-          </h1>
-          <p class="hero-subtitle">
-            Forros, sancas, painéis, nichos e drywall executados com cuidado em cada detalhe.
-            Projeto pensado para o seu espaço, limpeza na obra e compromisso com o prazo.
-          </p>
-
-          <div class="hero-badges">
-            <span class="badge"><span class="badge-dot"></span>Acabamento de revista</span>
-            <span class="badge"><span class="badge-dot"></span>Obra limpa e organizada</span>
-            <span class="badge"><span class="badge-dot"></span>Projetos sob medida</span>
-          </div>
-
-          <div class="hero-actions">
-            <button class="btn-main" onclick="document.getElementById('orcamento').scrollIntoView({behavior:'smooth'})">
-              Simular orçamento agora
-            </button>
-            <a
-              class="btn-ghost"
-              href="https://heyzine.com/flip-book/2cb0230d2e.html"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Ver catálogo completo
-            </a>
-          </div>
-
-          <p class="hero-note">
-            ➜ Use o simulador para ter uma base de orçamento antes de falar com a equipe da
-            <strong>Pré Art Drywall</strong>.
-          </p>
+      <div class="hero-metrics">
+        <div>
+          <strong>+ de 9</strong>
+          projetos apresentados nesta seleção de fotos
         </div>
-
-        <div class="hero-right">
-          <div class="hero-visual">
-            <div class="hero-visual-main">
-              <img src="foto1.jpg" alt="Sala com painel em drywall iluminado" class="hero-visual-img" />
-              <div class="hero-visual-label">
-                <span class="hero-visual-label-dot"></span>
-                <span>Projeto real Pré Art Drywall</span>
-              </div>
-            </div>
-          </div>
-          <div class="hero-stats">
-            <div class="hero-stat">
-              <strong>Drywall sob medida</strong>
-              <span>Painéis, nichos e sancas criados para o seu ambiente.</span>
-            </div>
-            <div class="hero-stat">
-              <strong>Iluminação integrada</strong>
-              <span>Projeto pensado para valorizar móveis, TV e decoração.</span>
-            </div>
-          </div>
+        <div>
+          <strong>Acabamento fino</strong>
+          em forros, sancas, nichos, paredes 3D e iluminação embutida
         </div>
-      </section>
+      </div>
+    </div>
 
-      <!-- SOBRE -->
-      <section>
-        <div class="section-card">
-          <h2 class="section-title">Sobre a Pré Art Drywall</h2>
-          <p class="section-sub">
-            Especializada em serviços de gesso e drywall no Rio de Janeiro, a Pré Art cuida do ambiente
-            desde o planejamento até o acabamento final.
-          </p>
-
-          <div class="about-grid">
-            <div class="about-box">
-              <h3>Gesso com acabamento limpo, moderno e organizado</h3>
-              <ul>
-                <li>Atendimento personalizado para cada tipo de ambiente.</li>
-                <li>Indicação de soluções em forros, sancas, nichos, painéis e drywall.</li>
-                <li>Proteção dos móveis, respeito ao cliente e ao imóvel.</li>
-                <li>Execução com organização, pontualidade e limpeza diária.</li>
-              </ul>
-            </div>
-
-            <div class="about-box">
-              <h3>Por que escolher a Pré Art Drywall?</h3>
-              <ul>
-                <li>Acabamento de catálogo, com linhas retas e superfícies prontas para pintura.</li>
-                <li>Planejamento da iluminação para deixar o ambiente mais aconchegante.</li>
-                <li>Projetos sob medida: do quarto ao painel de TV, cada detalhe é pensado para você.</li>
-              </ul>
-            </div>
-          </div>
+    <div class="hero-visual">
+      <div class="hero-visual-inner">
+        <img src="foto1.jpg" alt="Painel em drywall com nichos decorativos" class="hero-visual-img" />
+        <div class="hero-badge-card">
+          <strong>Drywall sob medida em sala de TV</strong>
+          Nichos iluminados, espaço para decoração, plantas e aquário,
+          com iluminação de destaque embutida.
+          <span class="pill">
+            <span class="dot"></span>
+            Projeto real Pré Art Drywall
+          </span>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      <!-- GALERIA / CARROSSEL -->
-      <section>
-        <div class="gallery-card">
-          <div class="gallery-header">
-            <div>
-              <h2>Trabalhos em destaque</h2>
-              <p>Arraste para o lado ou espere: as fotos passam automaticamente.</p>
-            </div>
-          </div>
-
-          <div class="carousel" id="carousel">
-            <div class="carousel-track" id="carouselTrack">
-              <div class="carousel-slide">
-                <img src="foto1.jpg" alt="Painel em drywall iluminado com nichos decorativos" />
-              </div>
-              <div class="carousel-slide">
-                <img src="foto1%20(2).jpg" alt="Sala com forro em gesso e iluminação indireta" />
-              </div>
-              <div class="carousel-slide">
-                <img src="foto1%20(3).jpg" alt="Parede com placas 3D douradas em gesso" />
-              </div>
-              <div class="carousel-slide">
-                <img src="foto1%20(4).jpg" alt="Ambiente com forro em gesso e iluminação embutida" />
-              </div>
-              <div class="carousel-slide">
-                <img src="foto1%20(5).jpg" alt="Quarto com parede 3D em gesso e iluminação em LED" />
-              </div>
-              <div class="carousel-slide">
-                <img src="foto1%20(6).jpg" alt="Sala moderna com forro em gesso e pendentes decorativos" />
-              </div>
-              <div class="carousel-slide">
-                <img src="foto1%20(7).jpg" alt="Parede com efeito de lua iluminada em gesso" />
-              </div>
-              <div class="carousel-slide">
-                <img src="foto1%20(8).jpg" alt="Sala com forro em gesso, LED verde e piso marmorizado" />
-              </div>
-              <div class="carousel-slide">
-                <img src="foto1%20(9).jpg" alt="Ambiente comercial com forro em gesso e iluminação linear" />
-              </div>
-            </div>
-
-            <button class="carousel-btn prev" type="button" aria-label="Foto anterior">&lsaquo;</button>
-            <button class="carousel-btn next" type="button" aria-label="Próxima foto">&rsaquo;</button>
-
-            <div class="carousel-dots" id="carouselDots" aria-hidden="true"></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CONTATO / ORÇAMENTO -->
-      <section id="orcamento">
-        <div class="section-card">
-          <h2 class="section-title">Simule seu orçamento</h2>
-          <p class="section-sub">
-            Preencha os dados abaixo para montar uma base de orçamento. Em seguida, você será direcionado
-            para o WhatsApp oficial da Pré Art Drywall, já com as informações da sua obra.
-          </p>
-
-          <div class="contact-grid">
-            <div class="contact-info">
-              <h3>Atendimento Pré Art Drywall</h3>
-              <ul class="contact-list">
-                <li><strong>Região de atendimento:</strong> Rio de Janeiro e toda região metropolitana</li>
-                <li><strong>WhatsApp:</strong> (21) 99233-5110 – número oficial da Pré Art</li>
-                <li>
-                  <strong>Horário:</strong> Segunda a sexta, das 10h às 19h.<br />
-                  Sábado, das 10h às 14h.
-                </li>
-              </ul>
-              <div class="contact-actions">
-                <a
-                  class="btn-whats"
-                  href="https://wa.me/5521992335110?text=Ol%C3%A1%2C%20vim%20do%20site%20da%20Pr%C3%A9%20Art%20Drywall%20e%20gostaria%20de%20simular%20um%20or%C3%A7amento."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Chamar direto no WhatsApp
-                </a>
-              </div>
-            </div>
-
-            <div class="form-card">
-              <h3>Simulador de orçamento via WhatsApp</h3>
-              <p>Use o formulário para montar uma mensagem completa. Você pode ajustar antes de enviar.</p>
-
-              <form id="formOrcamento">
-                <div class="form-grid">
-                  <div class="form-group">
-                    <label for="nome">Seu nome</label>
-                    <input id="nome" name="nome" type="text" placeholder="Ex.: Ana, João..." />
-                  </div>
-                  <div class="form-group">
-                    <label for="bairro">Bairro / Cidade</label>
-                    <input id="bairro" name="bairro" type="text" placeholder="Ex.: Madureira, RJ" />
-                  </div>
-                  <div class="form-group">
-                    <label for="ambiente">Tipo de ambiente</label>
-                    <select id="ambiente" name="ambiente">
-                      <option value="">Selecione</option>
-                      <option>Sala de estar / TV</option>
-                      <option>Quarto</option>
-                      <option>Cozinha</option>
-                      <option>Banheiro</option>
-                      <option>Corredor / Hall</option>
-                      <option>Comercial / Loja / Escritório</option>
-                      <option>Outro tipo de ambiente</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="servico">Serviço desejado</label>
-                    <select id="servico" name="servico">
-                      <option value="">Selecione</option>
-                      <option>Forro em gesso / drywall</option>
-                      <option>Sanca aberta / fechada</option>
-                      <option>Nichos / painel de TV</option>
-                      <option>Parede drywall</option>
-                      <option>Placa 3D em gesso</option>
-                      <option>Projeto completo (vários itens)</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="metragem">Metragem aproximada (m²)</label>
-                    <input id="metragem" name="metragem" type="text" placeholder="Ex.: 12 m², 20 m²..." />
-                  </div>
-                  <div class="form-group">
-                    <label for="prazo">Prazo desejado</label>
-                    <input id="prazo" name="prazo" type="text" placeholder="Ex.: ainda este mês, sem data, etc." />
-                  </div>
-                  <div class="form-group" style="grid-column:1 / -1;">
-                    <label for="detalhes">Detalhes adicionais</label>
-                    <textarea
-                      id="detalhes"
-                      name="detalhes"
-                      placeholder="Ex.: já tenho iluminação, preciso de indicação de projeto, quero painel de TV com nichos laterais..."
-                    ></textarea>
-                  </div>
-                </div>
-
-                <div class="form-footer">
-                  <p class="form-hint">
-                    Ao clicar em enviar, vamos abrir o WhatsApp com a mensagem pronta. Você pode revisar
-                    e só então enviar para a equipe da Pré Art Drywall.
-                  </p>
-                  <button type="submit" class="btn-whats">
-                    Enviar dados para o WhatsApp
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <footer>
+  <!-- SERVIÇOS -->
+  <section>
+    <div class="section-header">
+      <div>
+        <h2>O que a Pré Art Drywall faz por você</h2>
         <p>
-          © <span id="anoAtual"></span> <strong>Pré Art Drywall</strong> — Forros, sancas, nichos e drywall com
-          acabamento de catálogo no Rio de Janeiro.
+          Projetos em drywall e gesso que vão desde o forro simples até
+          ambientes completos com iluminação e painéis personalizados.
         </p>
-      </footer>
-    </main>
-  </div>
+      </div>
+    </div>
 
-  <script>
-    // Ano no rodapé
-    document.getElementById("anoAtual").textContent = new Date().getFullYear();
+    <div class="services-grid">
+      <article class="service-card">
+        <strong>Forros em drywall e gesso</strong>
+        Soluções modernas para sala, quarto, cozinha, corredores e espaços
+        comerciais, com opção de iluminação embutida e cortineiros.
+        <div class="service-chip-row">
+          <span class="chip">Forro liso</span>
+          <span class="chip">Tabicado</span>
+          <span class="chip">Rebaixado</span>
+        </div>
+      </article>
 
-    /* ================= CARROSSEL ================= */
-    (function () {
-      const track = document.getElementById("carouselTrack");
-      const slides = Array.from(track.children);
-      const prevBtn = document.querySelector(".carousel-btn.prev");
-      const nextBtn = document.querySelector(".carousel-btn.next");
-      const dotsContainer = document.getElementById("carouselDots");
+      <article class="service-card">
+        <strong>Sancas e iluminação</strong>
+        Sancas abertas ou fechadas, rasgos de luz, fita de LED embutida e
+        iluminação indireta para deixar o ambiente mais aconchegante.
+        <div class="service-chip-row">
+          <span class="chip">LED embutido</span>
+          <span class="chip">Iluminação indireta</span>
+          <span class="chip">Rasgos de luz</span>
+        </div>
+      </article>
 
-      let currentIndex = 0;
-      let autoPlayInterval;
+      <article class="service-card">
+        <strong>Nichos, painéis e paredes 3D</strong>
+        Nichos decorativos, painéis para TV e paredes em 3D criando textura,
+        profundidade e destaque para o ambiente.
+        <div class="service-chip-row">
+          <span class="chip">Painéis para TV</span>
+          <span class="chip">Nichos iluminados</span>
+          <span class="chip">Placas 3D</span>
+        </div>
+      </article>
 
-      // criar dots
-      slides.forEach((_, index) => {
-        const dot = document.createElement("button");
-        dot.className = "carousel-dot" + (index === 0 ? " active" : "");
-        dot.setAttribute("data-index", index);
-        dotsContainer.appendChild(dot);
+      <article class="service-card">
+        <strong>Ambientes completos</strong>
+        Projetos que integram forro, iluminação, móveis planejados,
+        nichos e paredes em drywall para transformar totalmente o espaço.
+        <div class="service-chip-row">
+          <span class="chip">Salas</span>
+          <span class="chip">Quartos</span>
+          <span class="chip">Comercial</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- TRABALHOS EM DESTAQUE / CARROSSEL -->
+  <section id="trabalhos" class="gallery">
+    <div class="section-header">
+      <div>
+        <h2>Trabalhos em destaque</h2>
+        <p>Arraste para o lado ou espere: as fotos passam automaticamente.</p>
+      </div>
+    </div>
+
+    <div class="carousel" id="carousel">
+      <button class="carousel-btn prev" type="button" aria-label="Anterior">‹</button>
+
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-slide active">
+          <img src="foto1.jpg" alt="Painel em drywall com nichos decorativos e iluminação embutida" />
+        </div>
+        <div class="carousel-slide">
+          <img src="foto2.jpg" alt="Sala com painel em drywall iluminado com nichos decorativos" />
+        </div>
+        <div class="carousel-slide">
+          <img src="foto3.jpg" alt="Sala com forro em gesso e iluminação indireta" />
+        </div>
+        <div class="carousel-slide">
+          <img src="foto4.jpg" alt="Parede com placas 3D douradas em gesso" />
+        </div>
+        <div class="carousel-slide">
+          <img src="foto5.jpg" alt="Ambiente com forro rebaixado, iluminação e detalhes em gesso" />
+        </div>
+        <div class="carousel-slide">
+          <img src="foto6.jpg" alt="Quarto com parede em 3D e iluminação em LED" />
+        </div>
+        <div class="carousel-slide">
+          <img src="foto7.jpg" alt="Sala de jantar com forro de gesso e iluminação decorativa" />
+        </div>
+        <div class="carousel-slide">
+          <img src="foto8.jpg" alt="Painel artístico em parede, com iluminação que destaca textura circular" />
+        </div>
+        <div class="carousel-slide">
+          <img src="foto9.jpg" alt="Sala com forro em drywall, iluminação em LED verde e piso marmorizado" />
+        </div>
+      </div>
+
+      <button class="carousel-btn next" type="button" aria-label="Próximo">›</button>
+
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato">
+    <div class="section-header">
+      <div>
+        <h2>Vamos falar do seu projeto?</h2>
+        <p>
+          Envie fotos ou vídeos do seu ambiente e explique o que você tem
+          em mente. Assim conseguimos orientar melhor o orçamento.
+        </p>
+      </div>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-box">
+        <strong>Atendimento via WhatsApp</strong>
+        <p>
+          Clique no botão abaixo para abrir uma conversa. Você pode mandar
+          fotos, vídeos, medidas aproximadas e referências do que gostaria.
+        </p>
+        <div class="contact-row">
+          <button class="whats-link"
+                  onclick="window.open('https://wa.me/55', '_blank')">
+            💬 Falar no WhatsApp
+          </button>
+          <span style="font-size: 12px; color: var(--muted);">
+            (adicione aqui o número da Pré Art Drywall)
+          </span>
+        </div>
+      </div>
+
+      <div class="contact-box">
+        <strong>Região de atendimento</strong>
+        <p>
+          Rio de Janeiro e região metropolitana. Consulte disponibilidade
+          para outros bairros e cidades próximas.
+        </p>
+        <div class="contact-row">
+          <span class="chip">Rio de Janeiro</span>
+          <span class="chip">Região Metropolitana</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© <span id="anoAtual"></span> Pré Art Drywall. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+  // Ano automático no rodapé
+  document.getElementById("anoAtual").textContent = new Date().getFullYear();
+
+  // ================= CARROSSEL ================= //
+  (function () {
+    const track = document.getElementById("carouselTrack");
+    const slides = Array.from(track.children);
+    const prevBtn = document.querySelector(".carousel-btn.prev");
+    const nextBtn = document.querySelector(".carousel-btn.next");
+    const dotsContainer = document.getElementById("carouselDots");
+
+    let currentIndex = 0;
+    let autoPlayInterval;
+
+    // criar dots
+    slides.forEach((_, index) => {
+      const dot = document.createElement("button");
+      dot.className = "carousel-dot" + (index === 0 ? " active" : "");
+      dot.setAttribute("data-index", String(index));
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = Array.from(dotsContainer.children);
+
+    function showSlide(index) {
+      if (index < 0) index = slides.length - 1;
+      if (index >= slides.length) index = 0;
+
+      slides[currentIndex].classList.remove("active");
+      dots[currentIndex].classList.remove("active");
+
+      slides[index].classList.add("active");
+      dots[index].classList.add("active");
+
+      currentIndex = index;
+    }
+
+    function nextSlide() {
+      showSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+      showSlide(currentIndex - 1);
+    }
+
+    prevBtn.addEventListener("click", prevSlide);
+    nextBtn.addEventListener("click", nextSlide);
+
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        const index = Number(dot.getAttribute("data-index"));
+        showSlide(index);
       });
+    });
 
-      const dots = Array.from(dotsContainer.children);
+    function startAutoPlay() {
+      stopAutoPlay();
+      autoPlayInterval = setInterval(nextSlide, 6000);
+    }
 
-      function updateCarousel(index) {
-        if (index < 0) index = slides.length - 1;
-        if (index >= slides.length) index = 0;
-        currentIndex = index;
+    function stopAutoPlay() {
+      if (autoPlayInterval) clearInterval(autoPlayInterval);
+    }
 
-        const offset = -index * 100;
-        track.style.transform = `translateX(${offset}%)`;
+    track.addEventListener("mouseenter", stopAutoPlay);
+    track.addEventListener("mouseleave", startAutoPlay);
 
-        dots.forEach((d, i) => {
-          d.classList.toggle("active", i === index);
-        });
-      }
+    startAutoPlay();
+  })();
+</script>
 
-      function nextSlide() {
-        updateCarousel(currentIndex + 1);
-      }
-
-      function prevSlide() {
-        updateCarousel(currentIndex - 1);
-      }
-
-      nextBtn.addEventListener("click", () => {
-        nextSlide();
-        restartAutoPlay();
-      });
-
-      prevBtn.addEventListener("click", () => {
-        prevSlide();
-        restartAutoPlay();
-      });
-
-      dots.forEach((dot) => {
-        dot.addEventListener("click", () => {
-          const index = parseInt(dot.getAttribute("data-index"), 10);
-          updateCarousel(index);
-          restartAutoPlay();
-        });
-      });
-
-      function startAutoPlay() {
-        autoPlayInterval = setInterval(nextSlide, 5000);
-      }
-
-      function stopAutoPlay() {
-        clearInterval(autoPlayInterval);
-      }
-
-      function restartAutoPlay() {
-        stopAutoPlay();
-        startAutoPlay();
-      }
-
-      const carousel = document.getElementById("carousel");
-      carousel.addEventListener("mouseenter", stopAutoPlay);
-      carousel.addEventListener("mouseleave", startAutoPlay);
-
-      // inicia
-      updateCarousel(0);
-      startAutoPlay();
-    })();
-
-    /* ========== FORMULÁRIO -> WHATSAPP ========== */
-    (function () {
-      const form = document.getElementById("formOrcamento");
-      const numeroWhats = "5521992335110";
-
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        const nome = document.getElementById("nome").value.trim();
-        const bairro = document.getElementById("bairro").value.trim();
-        const ambiente = document.getElementById("ambiente").value;
-        const servico = document.getElementById("servico").value;
-        const metragem = document.getElementById("metragem").value.trim();
-        const prazo = document.getElementById("prazo").value.trim();
-        const detalhes = document.getElementById("detalhes").value.trim();
-
-        let mensagem = "Olá, vim do site da Pré Art Drywall e gostaria de simular um orçamento.%0A%0A";
-
-        if (nome) mensagem += `Nome: ${nome}%0A`;
-        if (bairro) mensagem += `Bairro / Cidade: ${bairro}%0A`;
-        if (ambiente) mensagem += `Tipo de ambiente: ${ambiente}%0A`;
-        if (servico) mensagem += `Serviço desejado: ${servico}%0A`;
-        if (metragem) mensagem += `Metragem aproximada: ${metragem}%0A`;
-        if (prazo) mensagem += `Prazo desejado: ${prazo}%0A`;
-        if (detalhes) mensagem += `%0ADetalhes adicionais:%0A${encodeURIComponent(detalhes)}`;
-
-        const url = `https://wa.me/${numeroWhats}?text=${mensagem}`;
-        window.open(url, "_blank");
-      });
-    })();
-  </script>
 </body>
 </html>
