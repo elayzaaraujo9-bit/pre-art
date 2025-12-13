@@ -195,9 +195,69 @@ footer{
   font-size:.75rem;
   padding:30px 0;
 }
+/* ===== AJUSTES PARA CELULAR ===== */
+@media (max-width: 768px) {
 
-@media(max-width:900px){
-  .hero,.simulador{grid-template-columns:1fr}
+  section {
+    padding: 40px 16px;
+  }
+
+  /* HERO */
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  .hero img {
+    margin-top: 10px;
+  }
+
+  /* BOTÕES */
+  .btn-primary,
+  .btn-secondary {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  /* CARDS */
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  /* GALERIA */
+  .galeria {
+    grid-template-columns: 1fr;
+  }
+
+  .foto-card img {
+    height: auto;
+  }
+
+  /* SIMULADOR */
+  .simulador {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  iframe {
+    height: 420px;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
 }
 </style>
 </head>
@@ -317,3 +377,4 @@ Aguardo retorno. Obrigado(a)!`;
 
 </body>
 </html>
+
