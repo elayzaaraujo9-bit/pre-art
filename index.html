@@ -12,10 +12,8 @@
 <style>
 :root{
   --bg:#0b0f1a;
-  --bg-soft:#11162a;
   --card:#151b33;
   --yellow:#f4c430;
-  --red:#d32f2f;
   --text:#f5f7ff;
   --muted:#b0b6d9;
 }
@@ -36,27 +34,11 @@ section{
   padding:70px 20px;
 }
 
-.btn-primary{
-  background:linear-gradient(135deg,var(--yellow),#ffd966);
-  color:#111;
-  padding:14px 26px;
-  border-radius:30px;
-  font-weight:600;
-  display:inline-block;
-}
-
-.btn-secondary{
-  border:1px solid rgba(255,255,255,.25);
-  padding:14px 26px;
-  border-radius:30px;
-  margin-left:10px;
-}
-
 header{
   position:sticky;
   top:0;
   z-index:10;
-  background:rgba(10,14,30,.85);
+  background:rgba(10,14,30,.9);
   backdrop-filter:blur(10px);
   padding:16px 26px;
   display:flex;
@@ -64,8 +46,14 @@ header{
   align-items:center;
 }
 
-header strong{
-  font-size:1.1rem;
+.btn-primary{
+  background:linear-gradient(135deg,var(--yellow),#ffd966);
+  color:#111;
+  padding:14px 26px;
+  border-radius:30px;
+  font-weight:600;
+  display:inline-block;
+  text-align:center;
 }
 
 .hero{
@@ -80,20 +68,16 @@ header strong{
   line-height:1.2;
 }
 
-.hero h1 span{
-  color:var(--yellow);
-}
+.hero h1 span{color:var(--yellow)}
 
 .hero p{
   color:var(--muted);
   margin:20px 0 30px;
-  font-size:.95rem;
 }
 
 .hero img{
   width:100%;
   border-radius:22px;
-  box-shadow:0 30px 60px rgba(0,0,0,.7);
 }
 
 .cards{
@@ -109,15 +93,8 @@ header strong{
   padding:22px;
 }
 
-.card strong{
-  color:var(--yellow);
-  display:block;
-  margin-bottom:6px;
-}
-
 .section-title{
   font-size:1.8rem;
-  margin-bottom:10px;
 }
 
 .section-sub{
@@ -136,7 +113,6 @@ header strong{
   background:#0b0f1a;
   border-radius:22px;
   overflow:hidden;
-  box-shadow:0 25px 45px rgba(0,0,0,.65);
 }
 
 .foto-card img{
@@ -151,27 +127,10 @@ header strong{
   display:block;
   padding:16px;
   font-size:.85rem;
-  color:#ddd;
 }
 
-iframe{
-  width:100%;
-  height:600px;
-  border:none;
-  border-radius:22px;
-  margin-top:30px;
-}
-
-.simulador{
-  display:grid;
-  grid-template-columns:1fr 1.2fr;
-  gap:30px;
-}
-
-.box{
-  background:var(--card);
-  border-radius:22px;
-  padding:24px;
+form{
+  max-width:520px;
 }
 
 input,select,textarea{
@@ -184,79 +143,49 @@ input,select,textarea{
   margin-bottom:12px;
 }
 
-button{
-  border:none;
-  cursor:pointer;
-}
-
 footer{
   text-align:center;
   color:var(--muted);
   font-size:.75rem;
   padding:30px 0;
 }
-/* ===== AJUSTES PARA CELULAR ===== */
-@media (max-width: 768px) {
 
-  section {
-    padding: 40px 16px;
+/* ===== MOBILE ===== */
+@media (max-width: 768px){
+
+  header{
+    flex-direction:column;
+    gap:12px;
+    text-align:center;
   }
 
-  /* HERO */
-  .hero {
-    grid-template-columns: 1fr;
-    gap: 24px;
+  section{
+    padding:40px 16px;
   }
 
-  .hero h1 {
-    font-size: 1.9rem;
+  .hero{
+    grid-template-columns:1fr;
+    gap:24px;
   }
 
-  .hero p {
-    font-size: 0.95rem;
+  .hero h1{
+    font-size:1.9rem;
   }
 
-  .hero img {
-    margin-top: 10px;
+  .btn-primary{
+    width:100%;
   }
 
-  /* BOTÕES */
-  .btn-primary,
-  .btn-secondary {
-    display: block;
-    width: 100%;
-    text-align: center;
-    margin-bottom: 12px;
+  .cards{
+    grid-template-columns:1fr;
   }
 
-  /* CARDS */
-  .cards {
-    grid-template-columns: 1fr;
+  .galeria{
+    grid-template-columns:1fr;
   }
 
-  /* GALERIA */
-  .galeria {
-    grid-template-columns: 1fr;
-  }
-
-  .foto-card img {
-    height: auto;
-  }
-
-  /* SIMULADOR */
-  .simulador {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  iframe {
-    height: 420px;
-  }
-
-  header {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
+  .foto-card img{
+    height:auto;
   }
 }
 </style>
@@ -266,115 +195,72 @@ footer{
 
 <header>
   <strong>Pré Art Drywall</strong>
-  <a href="#simulador" class="btn-primary">Simular orçamento agora</a>
+  <a href="#contato" class="btn-primary">Solicitar orçamento</a>
 </header>
 
 <section class="hero">
   <div>
-    <h1>Ambientes em gesso com <span>acabamento de catálogo</span>.</h1>
-    <p>Forros, sancas, nichos, painéis e drywall executados com precisão, limpeza e compromisso do início ao acabamento final.</p>
-    <a href="#simulador" class="btn-primary">Simular meu orçamento</a>
-    <a href="#catalogo" class="btn-secondary">Ver catálogo</a>
+    <h1>Drywall e gesso com <span>acabamento de catálogo</span>.</h1>
+    <p>Execução precisa, limpa e profissional do início ao acabamento final.</p>
+    <a href="#galeria" class="btn-primary">Ver trabalhos</a>
 
     <div class="cards">
-      <div class="card">
-        <strong>Especialidade</strong>
-        Forros, sancas e iluminação moderna
-      </div>
-      <div class="card">
-        <strong>Projetos</strong>
-        Residenciais e comerciais sob medida
-      </div>
+      <div class="card">Forros, sancas e iluminação</div>
+      <div class="card">Drywall residencial e comercial</div>
     </div>
   </div>
 
-  <img src="foto1.jpg" alt="Projeto em gesso">
+  <img src="img/acabamento-final-drywall.jpg" alt="Acabamento em drywall">
 </section>
 
-<section>
-  <h2 class="section-title">Trabalhos em destaque</h2>
-  <p class="section-sub">Projetos reais executados pela Pré Art Drywall.</p>
+<section id="galeria">
+  <h2 class="section-title">Trabalhos realizados</h2>
+  <p class="section-sub">Projetos executados pela Pré Art Drywall.</p>
 
   <div class="galeria">
-    <div class="foto-card"><img src="foto2.jpg"><span>Forro com iluminação embutida</span></div>
-    <div class="foto-card"><img src="foto3.jpg"><span>Sanca moderna com LED</span></div>
-    <div class="foto-card"><img src="foto4.jpg"><span>Painel em gesso decorativo</span></div>
-    <div class="foto-card"><img src="foto5.jpg"><span>Nichos e detalhes sob medida</span></div>
-    <div class="foto-card"><img src="foto6.jpg"><span>Acabamento fino em ambientes internos</span></div>
+    <div class="foto-card"><img src="img/drywall-painel.jpg"><span>Painel em drywall</span></div>
+    <div class="foto-card"><img src="img/drywall-piso.jpg"><span>Acabamento interno</span></div>
+    <div class="foto-card"><img src="img/drywall-forro-processo.jpg"><span>Forro em execução</span></div>
+    <div class="foto-card"><img src="img/drywall-divisoria-processo.jpg"><span>Divisória em processo</span></div>
   </div>
 </section>
 
-<section>
-  <h2 class="section-title">Veja mais no Instagram</h2>
-  <p class="section-sub">Mais obras, bastidores e projetos em andamento.</p>
-  <a class="btn-primary" target="_blank" href="https://www.instagram.com/pre.art.gesso">@pre.art.gesso</a>
+<section id="contato">
+  <h2 class="section-title">Solicitar orçamento</h2>
+
+  <form onsubmit="enviar(event)">
+    <input id="nome" placeholder="Seu nome" required>
+    <input id="bairro" placeholder="Bairro / Região" required>
+
+    <select id="servico">
+      <option>Drywall</option>
+      <option>Gesso</option>
+      <option>Elétrica</option>
+      <option>Pintura</option>
+      <option>Piso</option>
+      <option>Outros</option>
+    </select>
+
+    <textarea id="obs" placeholder="Descreva o serviço desejado"></textarea>
+    <button class="btn-primary">Enviar solicitação</button>
+  </form>
 </section>
 
-<section id="catalogo">
-  <h2 class="section-title">Catálogo completo</h2>
-  <iframe src="https://heyzine.com/flip-book/2cb0230d2e.html"></iframe>
-</section>
-
-<section id="simulador">
-  <h2 class="section-title">Simule seu orçamento</h2>
-
-  <div class="simulador">
-    <div class="box">
-      <p><strong>Atendimento</strong></p>
-      <p>Região Metropolitana do RJ</p>
-      <p>Seg–Sex: 10h às 19h<br>Sáb: 10h às 14h</p>
-      <a class="btn-primary" target="_blank" href="https://wa.me/5521992335110">Chamar no WhatsApp</a>
-    </div>
-
-    <div class="box">
-      <form onsubmit="enviar(event)">
-        <input id="bairro" placeholder="Bairro">
-        <select id="servico">
-          <option>Forro</option>
-          <option>Sanca</option>
-          <option>Painel</option>
-          <option>Nicho</option>
-          <option>Projeto completo</option>
-        </select>
-        <input id="metragem" placeholder="Metragem aproximada (m²)">
-        <input id="inicio" placeholder="Quando deseja iniciar">
-        <textarea id="obs" placeholder="Observações"></textarea>
-        <button class="btn-primary">Enviar orçamento</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<footer>
-© <span id="ano"></span> Pré Art Drywall
-</footer>
+<footer>© <span id="ano"></span> Pré Art Drywall</footer>
 
 <script>
 document.getElementById("ano").textContent=new Date().getFullYear();
-const VALOR_POR_M2=150;
 function enviar(e){
  e.preventDefault();
- const b=document.getElementById("bairro").value;
- const s=document.getElementById("servico").value;
- const m=parseFloat(document.getElementById("metragem").value||0);
- const i=document.getElementById("inicio").value;
- const o=document.getElementById("obs").value;
- const v=m?`R$ ${m*VALOR_POR_M2}`:"a definir";
- const msg=`Olá! Gostaria de um orçamento de serviços.
+ const msg=`Olá! Gostaria de solicitar um orçamento.
 
-📍 Região: Metropolitana do RJ
-🏘️ Bairro: ${b}
-🛠️ Serviço desejado: ${s}
-📐 Metragem aproximada: ${m} m²
-⏱️ Início do serviço: ${i}
-💰 Valor estimado: ${v}
-📝 Observações: ${o}
-
-Aguardo retorno. Obrigado(a)!`;
+👤 Nome: ${nome.value}
+📍 Bairro/Região: ${bairro.value}
+🛠️ Serviço: ${servico.value}
+📝 Detalhes: ${obs.value}`;
  window.open("https://wa.me/5521992335110?text="+encodeURIComponent(msg),"_blank");
 }
 </script>
 
 </body>
 </html>
-
