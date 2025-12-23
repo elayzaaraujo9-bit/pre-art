@@ -24,6 +24,7 @@ body{
   font-family:Poppins,sans-serif;
   background:radial-gradient(circle at top,#151b33,#05070f 60%);
   color:var(--text);
+  line-height:1.5;
 }
 
 a{text-decoration:none;color:inherit}
@@ -44,6 +45,12 @@ header{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+header strong{
+  font-size:1.2rem;
+  letter-spacing:.5px;
 }
 
 .btn-primary{
@@ -54,6 +61,11 @@ header{
   font-weight:600;
   display:inline-block;
   text-align:center;
+  transition:.2s;
+}
+
+.btn-primary:hover{
+  filter:brightness(.9);
 }
 
 .hero{
@@ -64,8 +76,9 @@ header{
 }
 
 .hero h1{
-  font-size:2.6rem;
+  font-size:2.8rem;
   line-height:1.2;
+  font-weight:700;
 }
 
 .hero h1 span{color:var(--yellow)}
@@ -73,11 +86,15 @@ header{
 .hero p{
   color:var(--muted);
   margin:20px 0 30px;
+  font-size:1.1rem;
 }
 
 .hero img{
   width:100%;
   border-radius:22px;
+  object-fit:cover;
+  height:420px;
+  box-shadow:0 0 40px rgba(0,0,0,.4);
 }
 
 .cards{
@@ -89,17 +106,27 @@ header{
 
 .card{
   background:var(--card);
-  border-radius:20px;
+  border-radius:18px;
   padding:22px;
+  font-weight:500;
+  border:1px solid rgba(255,255,255,.05);
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  background:#1b2344;
 }
 
 .section-title{
-  font-size:1.8rem;
+  font-size:2rem;
+  font-weight:600;
 }
 
 .section-sub{
   color:var(--muted);
   max-width:720px;
+  margin-top:6px;
 }
 
 .galeria{
@@ -113,24 +140,30 @@ header{
   background:#0b0f1a;
   border-radius:22px;
   overflow:hidden;
+  border:1px solid rgba(255,255,255,.05);
+  transition:.2s;
+}
+
+.foto-card:hover{
+  transform:scale(1.02);
 }
 
 .foto-card img{
   width:100%;
   height:260px;
-  object-fit:contain;
-  background:#000;
-  padding:12px;
+  object-fit:cover;
 }
 
 .foto-card span{
   display:block;
   padding:16px;
-  font-size:.85rem;
+  font-size:.9rem;
+  color:var(--muted);
 }
 
 form{
   max-width:520px;
+  margin-top:30px;
 }
 
 input,select,textarea{
@@ -141,6 +174,12 @@ input,select,textarea{
   padding:12px;
   border-radius:12px;
   margin-bottom:12px;
+  font-size:1rem;
+}
+
+textarea{
+  height:120px;
+  resize:none;
 }
 
 footer{
@@ -148,6 +187,8 @@ footer{
   color:var(--muted);
   font-size:.75rem;
   padding:30px 0;
+  margin-top:40px;
+  border-top:1px solid rgba(255,255,255,.05);
 }
 
 /* ===== MOBILE ===== */
@@ -169,7 +210,11 @@ footer{
   }
 
   .hero h1{
-    font-size:1.9rem;
+    font-size:2rem;
+  }
+
+  .hero img{
+    height:260px;
   }
 
   .btn-primary{
@@ -185,7 +230,7 @@ footer{
   }
 
   .foto-card img{
-    height:auto;
+    height:220px;
   }
 }
 </style>
@@ -250,6 +295,7 @@ footer{
 
 <script>
 document.getElementById("ano").textContent=new Date().getFullYear();
+
 function enviar(e){
  e.preventDefault();
  const msg=`Olá! Gostaria de solicitar um orçamento.
@@ -258,6 +304,7 @@ function enviar(e){
 📍 Bairro/Região: ${bairro.value}
 🛠️ Serviço: ${servico.value}
 📝 Detalhes: ${obs.value}`;
+
  window.open("https://wa.me/5521992335110?text="+encodeURIComponent(msg),"_blank");
 }
 </script>
