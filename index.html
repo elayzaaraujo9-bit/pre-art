@@ -18,7 +18,11 @@
   --muted:#b0b6d9;
 }
 
-*{margin:0;padding:0;box-sizing:border-box}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
 body{
   font-family:'Poppins',sans-serif;
@@ -26,7 +30,10 @@ body{
   color:var(--text);
 }
 
-a{text-decoration:none;color:inherit}
+a{
+  text-decoration:none;
+  color:inherit;
+}
 
 /* HEADER */
 header{
@@ -36,7 +43,9 @@ header{
   padding:24px 40px;
 }
 
-header strong{font-size:1.2rem}
+header strong{
+  font-size:1.2rem;
+}
 
 header a{
   background:var(--yellow);
@@ -60,7 +69,9 @@ header a{
   line-height:1.2;
 }
 
-.hero h1 span{color:var(--yellow)}
+.hero h1 span{
+  color:var(--yellow);
+}
 
 .hero p{
   margin:18px 0 32px;
@@ -89,7 +100,7 @@ header a{
   color:var(--yellow);
 }
 
-/* CARD */
+/* CARD IMAGEM */
 .hero-card{
   background:linear-gradient(145deg,#1b2040,#0f1326);
   border-radius:26px;
@@ -99,55 +110,13 @@ header a{
 .hero-card img{
   width:100%;
   border-radius:18px;
-}
-
-/* FORM */
-.form-box{
-  max-width:720px;
-  margin:0 auto;
-  background:var(--card);
-  padding:36px;
-  border-radius:26px;
-}
-
-.form-box h2{
-  text-align:center;
-  margin-bottom:10px;
-}
-
-.form-box p{
-  text-align:center;
-  color:var(--muted);
-  margin-bottom:30px;
-}
-
-form{
-  display:grid;
-  gap:16px;
-}
-
-input, select, textarea{
-  background:#0e1330;
-  border:1px solid #1f2555;
-  padding:14px;
-  border-radius:14px;
-  color:var(--text);
-  font-family:'Poppins',sans-serif;
-}
-
-textarea{resize:none;height:120px}
-
-button{
-  background:var(--yellow);
-  border:none;
-  padding:16px;
-  border-radius:28px;
-  font-weight:700;
-  cursor:pointer;
+  display:block;
 }
 
 /* SECTIONS */
-section{padding:70px 40px}
+section{
+  padding:70px 40px;
+}
 
 .cards{
   display:grid;
@@ -161,10 +130,17 @@ section{padding:70px 40px}
   border-radius:22px;
 }
 
-.card h3{color:var(--yellow);margin-bottom:10px}
-.card p{color:var(--muted);font-size:.95rem}
+.card h3{
+  margin-bottom:10px;
+  color:var(--yellow);
+}
 
-/* MOBILE */
+.card p{
+  color:var(--muted);
+  font-size:.95rem;
+}
+
+/* RESPONSIVO CELULAR */
 @media (max-width:768px){
 
   header{
@@ -179,15 +155,26 @@ section{padding:70px 40px}
     text-align:center;
   }
 
-  .hero h1{font-size:2rem}
+  .hero h1{
+    font-size:2rem;
+  }
 
-  .hero p{margin-left:auto;margin-right:auto}
+  .hero p{
+    margin-left:auto;
+    margin-right:auto;
+  }
 
-  .hero-buttons{justify-content:center}
+  .hero-buttons{
+    justify-content:center;
+  }
 
-  section{padding:50px 20px}
+  section{
+    padding:50px 20px;
+  }
 
-  .cards{grid-template-columns:1fr}
+  .cards{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
@@ -196,99 +183,51 @@ section{padding:70px 40px}
 
 <header>
   <strong>Pré Art Gesso</strong>
-  <a href="#orcamento">Solicitar orçamento</a>
+  <a href="#simulador">Simular orçamento agora</a>
 </header>
 
 <main>
 
-<section class="hero">
-  <div>
-    <h1>Ambientes em gesso com <span>acabamento de catálogo</span></h1>
-    <p>
-      Forros, sancas, painéis, nichos e drywall com padrão profissional
-      do projeto à entrega final.
-    </p>
+  <section class="hero">
+    <div>
+      <h1>Ambientes em gesso com <span>acabamento de catálogo</span></h1>
+      <p>
+        Forros, sancas, painéis, nichos e drywall executados com precisão,
+        limpeza e compromisso do início ao fim.
+      </p>
 
-    <div class="hero-buttons">
-      <a class="btn-primary" href="#orcamento">Solicitar orçamento</a>
-      <a class="btn-outline" href="#catalogo">Ver catálogo</a>
-    </div>
-  </div>
-
-  <div class="hero-card">
-    <img src="img/foto1.jpg" alt="Projeto em gesso">
-  </div>
-</section>
-
-<section id="orcamento">
-  <div class="form-box">
-    <h2>Solicitação de orçamento</h2>
-    <p>Preencha os dados e nossa equipe fará a análise do seu projeto.</p>
-
-    <form onsubmit="enviarWhatsApp(event)">
-      <input type="text" id="nome" placeholder="Seu nome" required>
-      <input type="text" id="cidade" placeholder="Cidade / Bairro" required>
-
-      <select id="servico" required>
-        <option value="">Tipo de serviço</option>
-        <option>Forro de gesso</option>
-        <option>Sanca</option>
-        <option>Drywall</option>
-        <option>Painel / Nicho</option>
-        <option>Projeto completo</option>
-      </select>
-
-      <textarea id="descricao" placeholder="Descreva o ambiente e sua ideia"></textarea>
-
-      <button type="submit">Enviar solicitação</button>
-    </form>
-  </div>
-</section>
-
-<section>
-  <div class="cards">
-    <div class="card">
-      <h3>Acabamento de revista</h3>
-      <p>Padrão estético elevado e execução limpa.</p>
+      <div class="hero-buttons">
+        <a class="btn-primary" href="#simulador">Simular meu ambiente</a>
+        <a class="btn-outline" href="#catalogo">Ver catálogo completo</a>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>Projetos sob medida</h3>
-      <p>Cada ambiente pensado para o seu espaço.</p>
+    <div class="hero-card">
+      <!-- mesmas fotos -->
+      <img src="img/foto1.jpg" alt="Projeto em gesso">
     </div>
+  </section>
 
-    <div class="card">
-      <h3>Compromisso real</h3>
-      <p>Prazos, organização e respeito ao cliente.</p>
+  <section>
+    <div class="cards">
+      <div class="card">
+        <h3>Especialidade</h3>
+        <p>Forros e sancas modernas, linhas retas e iluminação embutida.</p>
+      </div>
+
+      <div class="card">
+        <h3>Projetos sob medida</h3>
+        <p>Ambientes planejados de acordo com o espaço e estilo do cliente.</p>
+      </div>
+
+      <div class="card">
+        <h3>Acabamento limpo</h3>
+        <p>Padrão de revista, sem sujeira e com entrega organizada.</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
 </main>
-
-<script>
-function enviarWhatsApp(e){
-  e.preventDefault();
-
-  const nome = document.getElementById("nome").value;
-  const cidade = document.getElementById("cidade").value;
-  const servico = document.getElementById("servico").value;
-  const descricao = document.getElementById("descricao").value;
-
-  const mensagem =
-`Olá, gostaria de solicitar um orçamento:
-
-Nome: ${nome}
-Cidade: ${cidade}
-Serviço: ${servico}
-Descrição: ${descricao}`;
-
-  const telefone = "55SEUNUMEROAQUI"; // coloque o número da empresa
-  const url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
-
-  window.open(url, "_blank");
-}
-</script>
 
 </body>
 </html>
